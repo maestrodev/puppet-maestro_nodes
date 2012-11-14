@@ -1,0 +1,3 @@
+fixtures:
+  symlinks:
+    maestro_nodes: "#{source_dir}"

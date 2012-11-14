@@ -1,0 +1,70 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    maestrodev/archiva (1.0.0)
+      maestrodev/wget (~> 0.0.1)
+    maestrodev/maven (0.0.2)
+      maestrodev/wget (>= 0.0.1)
+    maestrodev/wget (0.0.1)
+    puppetlabs/firewall (0.0.4)
+    puppetlabs/stdlib (3.1.1)
+
+GIT
+  remote: https://github.com/etiennep/puppet-postgresql.git
+  ref: master
+  sha: 5dcdffcf5bb2cb01eeb4d6f01d21aef06df621ce
+  specs:
+    postgresql (1.0.0)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/stdlib (>= 2.0.0)
+
+GIT
+  remote: https://github.com/maestrodev/puppet-ant.git
+  ref: master
+  sha: 184c805f931664057db1d0285069f3925006f1a7
+  specs:
+    ant (1.0.0)
+      maestrodev/wget (>= 0.0.1)
+
+GIT
+  remote: https://github.com/maestrodev/puppet-git.git
+  ref: master
+  sha: 09fe025b5bc19f95181e381d5de0ce01498c0ecd
+  specs:
+    git (0.0.1)
+
+GIT
+  remote: https://github.com/maestrodev/puppet-jenkins.git
+  ref: master
+  sha: 263d6d867a94bb82ef9f68bdc4d46d099c05c984
+  specs:
+    jenkins (0.0.1)
+
+GIT
+  remote: https://github.com/maestrodev/puppet-maestro.git
+  ref: master
+  sha: 03d7e66911142e89e42e4873858dd37a06e16116
+  specs:
+    maestro (1.0.0)
+      maestrodev/wget (>= 0.0.1)
+      puppetlabs/stdlib (>= 2.5.1)
+
+GIT
+  remote: https://github.com/maestrodev/puppet-sonar.git
+  ref: master
+  sha: 6a2126bbff039342c3d94be07edae1869796ac05
+  specs:
+    sonar (0.0.1)
+      maestrodev/maven (~> 0.0.2)
+      maestrodev/wget (~> 0.0.1)
+
+DEPENDENCIES
+  ant (>= 0)
+  git (>= 0)
+  jenkins (>= 0)
+  maestro (>= 0)
+  maestrodev/archiva (~> 1.0.0)
+  maestrodev/maven (~> 0.0.2)
+  postgresql (>= 0)
+  sonar (>= 0)
+

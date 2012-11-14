@@ -1,0 +1,6 @@
+sonar.host.url=http://<%= fqdn.gsub(/\.agent\w*/,'') %>:8083
+sonar.jdbc.url=jdbc:postgresql://<%= fqdn.gsub(/\.agent\w*/,'') %>:5432/sonar
+sonar.jdbc.driverClassName=org.postgresql.Driver
+sonar.jdbc.username=maestro
+sonar.jdbc.password=maestro
+deploy.repo.url=<%= scope.lookupvar('maestro_nodes::repositories::deploy_repo_url') %>
