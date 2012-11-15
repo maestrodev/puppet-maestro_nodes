@@ -50,6 +50,13 @@ GIT
       puppetlabs/stdlib (>= 2.5.1)
 
 GIT
+  remote: https://github.com/maestrodev/puppet-rvm.git
+  ref: master
+  sha: 993688f343f1a84eb22e5a34a51e9cf503884381
+  specs:
+    rvm (1.0.0)
+
+GIT
   remote: https://github.com/maestrodev/puppet-sonar.git
   ref: master
   sha: 6a2126bbff039342c3d94be07edae1869796ac05
@@ -66,5 +73,6 @@ DEPENDENCIES
   maestrodev/archiva (~> 1.0.0)
   maestrodev/maven (~> 0.0.2)
   postgresql (>= 0)
+  rvm (>= 0)
   sonar (>= 0)
 

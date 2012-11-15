@@ -7,6 +7,7 @@ mod 'jenkins',             :git => 'https://github.com/maestrodev/puppet-jenkins
 mod 'maestro',             :git => 'https://github.com/maestrodev/puppet-maestro.git'
 mod 'maestrodev/maven',    '~>0.0.2'
 mod 'sonar',               :git => 'https://github.com/maestrodev/puppet-sonar.git'
+mod 'rvm',                 :git => 'https://github.com/maestrodev/puppet-rvm.git'
 
 # until released
 mod 'postgresql',          :git => 'https://github.com/etiennep/puppet-postgresql.git'

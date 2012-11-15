@@ -3,7 +3,7 @@ Bundler.require(:rake)
 require 'rake/clean'
 
 CLEAN.include(['spec/fixtures/', 'doc'])
-CLOBBER.include('.rvmrc', '.tmp', '.librarian')
+CLOBBER.include('.tmp', '.librarian')
 
 require 'puppetlabs_spec_helper/rake_tasks'
 
