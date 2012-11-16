@@ -2,16 +2,18 @@ class maestro_nodes::archivaserver(
   $port            = 8082,
   $maxmemory       = '256',
   $forwarded       = false,
-  $application_url = "http://localhost:8082/archiva") {
+  $application_url = "http://localhost:8082/archiva",
+  $db_password     = $maestro_nodes::database::password) {
 
-  $central_repo_url = 'https://repo.maestrodev.com/archiva/repository/central') {
+  $central_repo_url = 'https://repo.maestrodev.com/archiva/repository/central'
 
   postgresql::db{ 'archiva':
     user      => 'maestro',
-    password  => $maestro_nodes::database::password,
+    password  => $db_password,
     require   => [Class['postgresql::server'], Class['maestro_nodes::database']],
   } ->
   class { 'archiva':
+    version         => "1.4-M1-maestro-3.4.3.2",
     port            => $port,
     forwarded       => $forwarded,
     repo            => $maestro::repository::maestrodev,

@@ -1,8 +1,9 @@
-class maestro_nodes::sonarserver() {
+class maestro_nodes::sonarserver(
+  $db_password = $maestro_nodes::database::password) {
 
   postgresql::db{ 'sonar':
     user      => 'maestro',
-    password  => $maestro_nodes::database::password,
+    password  => $db_password,
     require   => [Class['postgresql::server'], Class['maestro_nodes::database']],
   } ->
   class { sonar:
