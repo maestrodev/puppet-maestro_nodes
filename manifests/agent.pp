@@ -1,6 +1,6 @@
 class maestro_nodes::agent(
   $repo,
-  $version) {
+  $version = undef) {
 
   include maestro::params
 
