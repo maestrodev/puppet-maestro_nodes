@@ -65,6 +65,13 @@ GIT
       maestrodev/maven (~> 0.0.2)
       maestrodev/wget (~> 0.0.1)
 
+GIT
+  remote: https://github.com/maestrodev/puppet-svn.git
+  ref: master
+  sha: 66454284cad47e81a9d5ea8ff92f4ed586f8d780
+  specs:
+    svn (0.0.1)
+
 DEPENDENCIES
   ant (>= 0)
   git (>= 0)
@@ -75,4 +82,5 @@ DEPENDENCIES
   postgresql (>= 0)
   rvm (>= 0)
   sonar (>= 0)
+  svn (>= 0)
 

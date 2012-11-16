@@ -18,7 +18,7 @@ class maestro_nodes::jenkinsserver(
     default_repo_config => $maestro_nodes::repositories::default_repo_config,
     mirrors             => $maestro_nodes::repositories::mirrors,
     servers             => $maestro_nodes::repositories::servers,
-    require             => [Class['repositories'], Package['jenkins']], # to know what the user/password is used in the repos
+    require             => [Class['maestro_nodes::repositories'], Package['jenkins']], # to know what the user/password is used in the repos
   } ->
 
   file { '/var/lib/jenkins/plugins':

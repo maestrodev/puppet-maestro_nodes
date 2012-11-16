@@ -1,6 +1,7 @@
 class maestro_nodes::agent(
   $repo,
   $version) {
+
   include maestro::params
 
   case $::osfamily {
@@ -43,6 +44,7 @@ class maestro_nodes::agent(
     agent_version => $version,
   }
 
+  # Git
   class { git: } ->
   git::resource::config { "agent-gitconfig":
     user     => $agent_user,
@@ -52,7 +54,10 @@ class maestro_nodes::agent(
     realname => 'MaestroDev Demonstration',
   }
 
-  ## Maven
+  # Subversion
+  class { 'svn': }
+
+  # Maven
   class {'maven::maven':
     version => '3.0.4',
   } ->
@@ -62,7 +67,7 @@ class maestro_nodes::agent(
     default_repo_config => $maestro_nodes::repositories::default_repo_config,
     mirrors             => $maestro_nodes::repositories::mirrors,
     servers             => $maestro_nodes::repositories::servers,
-    require             => [Class['repositories']],
+    require             => [Class['maestro_nodes::repositories']],
   }
 
   # Ant
