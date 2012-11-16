@@ -15,10 +15,10 @@ describe 'maestro_nodes::agent' do
   # ================================================ Linux ================================================
 
   context "when running on CentOS" do
-    let(:facts) { {:operatingsystem => 'CentOS', :kernel => 'Linux', :osfamily => 'Linux'} }
+    let(:facts) { {:operatingsystem => 'CentOS', :kernel => 'Linux', :osfamily => 'RedHat'} }
     let(:params) { DEFAULT_AGENT_PARAMS }
 
-    it { should contain_package("libxml2-devel") }
+    it { should_not contain_package("libxml2-devel") }
   end
 
   # ================================================ OS X ================================================

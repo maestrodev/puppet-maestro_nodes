@@ -24,7 +24,7 @@ class maestro_nodes::database(
 
   $jdbc_driver_url = "${repo_url}/postgresql/postgresql/8.4-702.jdbc3/postgresql-8.4-702.jdbc3.jar"
 
-  # for easier parameter passing to maestrodev::database
+  # for easier parameter passing
   $database = {
     maestro_jdbc    => $maestro_jdbc,
     sonar_jdbc      => $sonar_jdbc,
