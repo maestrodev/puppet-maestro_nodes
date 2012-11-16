@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'maestro_nodes::sonarserver' do
 
-  centos_facts
+  let(:facts) { centos_facts }
 
   let(:params) { {
     :db_password => 'mypassword'
