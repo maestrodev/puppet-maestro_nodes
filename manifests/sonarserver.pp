@@ -1,3 +1,4 @@
+# Sonar server using postgres database
 class maestro_nodes::sonarserver(
   $db_password = $maestro_nodes::database::password) {
 

@@ -1,3 +1,4 @@
+# Apache Archiva configured with a Postgres database and some default repositories
 class maestro_nodes::archivaserver(
   $port            = 8082,
   $maxmemory       = '256',

@@ -1,3 +1,5 @@
+# A jenkins server configured with git plugin and configured to use the
+# Archiva repository for Maven builds
 class maestro_nodes::jenkinsserver(
   $user = 'jenkins',
   $group = 'jenkins',

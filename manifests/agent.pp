@@ -1,3 +1,6 @@
+# A Maestro agent node with:
+# git, subversion, maven, ant, ivy, rake and rubygems
+
 class maestro_nodes::agent(
   $repo,
   $version = undef) {
