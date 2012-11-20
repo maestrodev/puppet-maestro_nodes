@@ -1,6 +1,8 @@
 FORGE
   remote: http://forge.puppetlabs.com
   specs:
+    maestrodev/ant (1.0.3)
+      maestrodev/wget (>= 0.0.1)
     maestrodev/archiva (1.0.0)
       maestrodev/wget (~> 0.0.1)
     maestrodev/maven (0.0.2)
@@ -17,14 +19,6 @@ GIT
     postgresql (1.0.0)
       puppetlabs/firewall (>= 0.0.4)
       puppetlabs/stdlib (>= 2.0.0)
-
-GIT
-  remote: https://github.com/maestrodev/puppet-ant.git
-  ref: master
-  sha: 184c805f931664057db1d0285069f3925006f1a7
-  specs:
-    ant (1.0.0)
-      maestrodev/wget (>= 0.0.1)
 
 GIT
   remote: https://github.com/maestrodev/puppet-git.git
@@ -73,10 +67,10 @@ GIT
     svn (0.0.1)
 
 DEPENDENCIES
-  ant (>= 0)
   git (>= 0)
   jenkins (>= 0)
   maestro (>= 0)
+  maestrodev/ant (~> 1.0.3)
   maestrodev/archiva (~> 1.0.0)
   maestrodev/maven (~> 0.0.2)
   postgresql (>= 0)

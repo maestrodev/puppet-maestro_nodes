@@ -1,6 +1,6 @@
 forge 'http://forge.puppetlabs.com'
 
-mod 'ant',                 :git => 'https://github.com/maestrodev/puppet-ant.git'
+mod 'maestrodev/ant',      '~>1.0.3'
 mod 'maestrodev/archiva',  '~>1.0.0'
 mod 'git',                 :git => 'https://github.com/maestrodev/puppet-git.git'
 mod 'svn',                 :git => 'https://github.com/maestrodev/puppet-svn.git'
