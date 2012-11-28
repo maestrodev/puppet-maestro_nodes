@@ -8,11 +8,6 @@ class maestro_nodes::macos_agent(
   $agent_name = $::hostname,
   $maxmemory = '128') {
 
-  # Puppet will complain if this doesn't exist.
-  group { 'puppet':
-    ensure => present,
-  }
-
   # facts.d folders
   file { '/etc/facts.d':
     ensure => directory,
