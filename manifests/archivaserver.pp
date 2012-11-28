@@ -24,6 +24,7 @@ class maestro_nodes::archivaserver(
     jdbc_driver_url => $maestro_nodes::database::jdbc_driver_url,
     jetty_version   => 7,
     maxmemory       => '64',
+    require         => Class['maestro::repository'],
   }
   file { "basic/archiva.xml":
     path    => "${archiva::home}/conf/archiva.xml",
