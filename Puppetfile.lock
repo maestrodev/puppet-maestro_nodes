@@ -7,6 +7,10 @@ FORGE
       maestrodev/wget (~> 0.0.1)
     maestrodev/maven (0.0.2)
       maestrodev/wget (>= 0.0.1)
+    maestrodev/sonar (1.0.0)
+      maestrodev/maven (>= 0.0.2)
+      maestrodev/wget (>= 0.0.1)
+      puppetlabs/stdlib (>= 2.3.0)
     maestrodev/wget (0.0.1)
     puppetlabs/firewall (0.0.4)
     puppetlabs/stdlib (3.1.1)
@@ -51,15 +55,6 @@ GIT
     rvm (1.0.0)
 
 GIT
-  remote: https://github.com/maestrodev/puppet-sonar.git
-  ref: master
-  sha: 6a2126bbff039342c3d94be07edae1869796ac05
-  specs:
-    sonar (0.0.1)
-      maestrodev/maven (~> 0.0.2)
-      maestrodev/wget (~> 0.0.1)
-
-GIT
   remote: https://github.com/maestrodev/puppet-svn.git
   ref: master
   sha: 66454284cad47e81a9d5ea8ff92f4ed586f8d780
@@ -73,8 +68,8 @@ DEPENDENCIES
   maestrodev/ant (~> 1.0.3)
   maestrodev/archiva (~> 1.0.0)
   maestrodev/maven (>= 0.0.2)
+  maestrodev/sonar (~> 1.0.0)
   postgresql (>= 0)
   rvm (>= 0)
-  sonar (>= 0)
   svn (>= 0)
 
