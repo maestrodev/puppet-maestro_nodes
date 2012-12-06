@@ -9,6 +9,7 @@ mod 'maestro',             :git => 'https://github.com/maestrodev/puppet-maestro
 mod 'maestrodev/maven',    '>=0.0.2'
 mod 'maestrodev/sonar',    '~>1.0.0'
 mod 'rvm',                 :git => 'https://github.com/maestrodev/puppet-rvm.git'
+mod 'maestrodev/ssh_keygen', '~>1.0.0'
 
 # until released
 mod 'postgresql',          :git => 'https://github.com/etiennep/puppet-postgresql.git'

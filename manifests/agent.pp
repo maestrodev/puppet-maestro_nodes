@@ -107,5 +107,9 @@ class maestro_nodes::agent(
     group   => $agent_group,
     mode    => 600,
   }
- 
+
+  # ssh keys for cloud provisioning
+  ssh_keygen { $agent_user :
+    home => $agent_user_home,
+  }
 }
