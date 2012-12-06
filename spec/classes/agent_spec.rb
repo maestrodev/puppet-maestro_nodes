@@ -52,13 +52,4 @@ describe 'maestro_nodes::agent' do
     it { should_not contain_package("libxml2-devel") }
   end
 
-  # ================================================ Windows ================================================
-
-  context "when running on Windows" do
-    let(:facts) { {:operatingsystem => 'windows', :kernel => 'windows', :osfamily => 'windows'} }
-    let(:params) { DEFAULT_AGENT_PARAMS }
-
-    it { should_not contain_package("libxml2-devel") }
-  end
-
 end
