@@ -5,7 +5,7 @@ FORGE
       maestrodev/wget (>= 0.0.1)
     maestrodev/archiva (1.0.0)
       maestrodev/wget (~> 0.0.1)
-    maestrodev/maven (0.0.2)
+    maestrodev/maven (1.0.0)
       maestrodev/wget (>= 0.0.1)
     maestrodev/sonar (1.0.0)
       maestrodev/maven (>= 0.0.2)
@@ -14,7 +14,7 @@ FORGE
     maestrodev/ssh_keygen (1.0.0)
     maestrodev/wget (0.0.1)
     puppetlabs/firewall (0.0.4)
-    puppetlabs/stdlib (3.1.1)
+    puppetlabs/stdlib (3.2.0)
 
 GIT
   remote: https://github.com/etiennep/puppet-postgresql.git
@@ -42,9 +42,10 @@ GIT
 GIT
   remote: https://github.com/maestrodev/puppet-maestro.git
   ref: master
-  sha: 03d7e66911142e89e42e4873858dd37a06e16116
+  sha: cbeeac4993522da349d3714e920997970454f656
   specs:
     maestro (1.0.0)
+      maestrodev/maven (>= 1.0.0)
       maestrodev/wget (>= 0.0.1)
       puppetlabs/stdlib (>= 2.5.1)
 
