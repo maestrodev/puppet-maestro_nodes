@@ -3,6 +3,7 @@
 class maestro_nodes::jenkinsserver(
   $user = 'jenkins',
   $group = 'jenkins',
+  $version = '1.468-1.1',
   $port = '8181',
   $prefix = undef ) {
 
@@ -11,7 +12,7 @@ class maestro_nodes::jenkinsserver(
     jenkins_group  => $group,
     jenkins_port   => $port,
     jenkins_prefix => $prefix,
-    version => '1.468-1.1', # latest version fails to install
+    version => $version, # latest version fails to install
   }
 
   maven::settings { 'jenkins' :
