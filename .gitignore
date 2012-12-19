@@ -3,5 +3,6 @@
 .project
 .librarian/
 .tmp/
+pkg/
 doc/
 spec/fixtures/
