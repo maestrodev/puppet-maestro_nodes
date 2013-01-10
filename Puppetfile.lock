@@ -17,15 +17,6 @@ FORGE
     puppetlabs/stdlib (3.2.0)
 
 GIT
-  remote: https://github.com/etiennep/puppet-postgresql.git
-  ref: master
-  sha: 5dcdffcf5bb2cb01eeb4d6f01d21aef06df621ce
-  specs:
-    postgresql (1.0.0)
-      puppetlabs/firewall (>= 0.0.4)
-      puppetlabs/stdlib (>= 2.0.0)
-
-GIT
   remote: https://github.com/maestrodev/puppet-git.git
   ref: master
   sha: 09fe025b5bc19f95181e381d5de0ce01498c0ecd
@@ -48,6 +39,15 @@ GIT
       maestrodev/maven (>= 1.0.0)
       maestrodev/wget (>= 0.0.1)
       puppetlabs/stdlib (>= 2.5.1)
+
+GIT
+  remote: https://github.com/maestrodev/puppet-postgresql.git
+  ref: psql-cwd
+  sha: 6b53c07da0b6fdd63b7828a220bb8636989bb311
+  specs:
+    postgresql (1.0.0)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/stdlib (>= 3.2.0)
 
 GIT
   remote: https://github.com/maestrodev/puppet-rvm.git

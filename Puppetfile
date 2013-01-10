@@ -12,4 +12,4 @@ mod 'rvm',                 :git => 'https://github.com/maestrodev/puppet-rvm.git
 mod 'maestrodev/ssh_keygen', '~>1.0.0'
 
 # until released
-mod 'postgresql',          :git => 'https://github.com/etiennep/puppet-postgresql.git'
+mod 'postgresql', :git => 'https://github.com/maestrodev/puppet-postgresql.git', :ref => 'psql-cwd'
