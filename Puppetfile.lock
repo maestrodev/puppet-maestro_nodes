@@ -5,6 +5,11 @@ FORGE
       maestrodev/wget (>= 0.0.1)
     maestrodev/archiva (1.0.1)
       maestrodev/wget (>= 1.0.0)
+    maestrodev/maestro (1.0.0)
+      maestrodev/maven (>= 1.0.0)
+      maestrodev/wget (>= 1.0.0)
+      puppetlabs/postgresql (>= 2.0.1)
+      puppetlabs/stdlib (>= 2.5.1)
     maestrodev/maven (1.0.0)
       maestrodev/wget (>= 0.0.1)
     maestrodev/sonar (1.0.0)
@@ -13,7 +18,13 @@ FORGE
       puppetlabs/stdlib (>= 2.3.0)
     maestrodev/ssh_keygen (1.0.0)
     maestrodev/wget (1.1.0)
+    puppetlabs/apt (1.1.0)
+      puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/firewall (0.0.4)
+    puppetlabs/postgresql (2.0.1)
+      puppetlabs/apt (< 2.0.0, >= 1.1.0)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/stdlib (< 4.0.0, >= 3.2.0)
     puppetlabs/stdlib (3.2.0)
 
 GIT
@@ -29,25 +40,6 @@ GIT
   sha: 263d6d867a94bb82ef9f68bdc4d46d099c05c984
   specs:
     jenkins (0.0.1)
-
-GIT
-  remote: https://github.com/maestrodev/puppet-maestro.git
-  ref: master
-  sha: cbeeac4993522da349d3714e920997970454f656
-  specs:
-    maestro (1.0.0)
-      maestrodev/maven (>= 1.0.0)
-      maestrodev/wget (>= 0.0.1)
-      puppetlabs/stdlib (>= 2.5.1)
-
-GIT
-  remote: https://github.com/maestrodev/puppet-postgresql.git
-  ref: psql-cwd
-  sha: 6b53c07da0b6fdd63b7828a220bb8636989bb311
-  specs:
-    postgresql (1.0.0)
-      puppetlabs/firewall (>= 0.0.4)
-      puppetlabs/stdlib (>= 3.2.0)
 
 GIT
   remote: https://github.com/maestrodev/puppet-rvm.git
@@ -66,13 +58,12 @@ GIT
 DEPENDENCIES
   git (>= 0)
   jenkins (>= 0)
-  maestro (>= 0)
   maestrodev/ant (~> 1.0.3)
   maestrodev/archiva (~> 1.0.0)
+  maestrodev/maestro (>= 1.0.0)
   maestrodev/maven (>= 0.0.2)
   maestrodev/sonar (~> 1.0.0)
   maestrodev/ssh_keygen (~> 1.0.0)
-  postgresql (>= 0)
   rvm (>= 0)
   svn (>= 0)
 
