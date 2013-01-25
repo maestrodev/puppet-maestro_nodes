@@ -3,8 +3,8 @@ FORGE
   specs:
     maestrodev/ant (1.0.3)
       maestrodev/wget (>= 0.0.1)
-    maestrodev/archiva (1.0.0)
-      maestrodev/wget (~> 0.0.1)
+    maestrodev/archiva (1.0.1)
+      maestrodev/wget (>= 1.0.0)
     maestrodev/maven (1.0.0)
       maestrodev/wget (>= 0.0.1)
     maestrodev/sonar (1.0.0)
@@ -12,7 +12,7 @@ FORGE
       maestrodev/wget (>= 0.0.1)
       puppetlabs/stdlib (>= 2.3.0)
     maestrodev/ssh_keygen (1.0.0)
-    maestrodev/wget (0.0.1)
+    maestrodev/wget (1.1.0)
     puppetlabs/firewall (0.0.4)
     puppetlabs/stdlib (3.2.0)
 
