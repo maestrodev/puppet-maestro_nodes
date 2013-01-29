@@ -5,6 +5,8 @@ FORGE
       maestrodev/wget (>= 0.0.1)
     maestrodev/archiva (1.0.1)
       maestrodev/wget (>= 1.0.0)
+    maestrodev/git (1.0.0)
+    maestrodev/jenkins (1.0.1)
     maestrodev/maestro (1.0.0)
       maestrodev/maven (>= 1.0.0)
       maestrodev/wget (>= 1.0.0)
@@ -12,11 +14,13 @@ FORGE
       puppetlabs/stdlib (>= 2.5.1)
     maestrodev/maven (1.0.0)
       maestrodev/wget (>= 0.0.1)
+    maestrodev/rvm (1.0.0)
     maestrodev/sonar (1.0.0)
       maestrodev/maven (>= 0.0.2)
       maestrodev/wget (>= 0.0.1)
       puppetlabs/stdlib (>= 2.3.0)
     maestrodev/ssh_keygen (1.0.0)
+    maestrodev/svn (1.0.0)
     maestrodev/wget (1.1.0)
     puppetlabs/apt (1.1.0)
       puppetlabs/stdlib (>= 2.2.1)
@@ -27,43 +31,15 @@ FORGE
       puppetlabs/stdlib (< 4.0.0, >= 3.2.0)
     puppetlabs/stdlib (3.2.0)
 
-GIT
-  remote: https://github.com/maestrodev/puppet-git.git
-  ref: master
-  sha: 09fe025b5bc19f95181e381d5de0ce01498c0ecd
-  specs:
-    git (0.0.1)
-
-GIT
-  remote: https://github.com/maestrodev/puppet-jenkins.git
-  ref: master
-  sha: 263d6d867a94bb82ef9f68bdc4d46d099c05c984
-  specs:
-    jenkins (0.0.1)
-
-GIT
-  remote: https://github.com/maestrodev/puppet-rvm.git
-  ref: master
-  sha: 993688f343f1a84eb22e5a34a51e9cf503884381
-  specs:
-    rvm (1.0.0)
-
-GIT
-  remote: https://github.com/maestrodev/puppet-svn.git
-  ref: master
-  sha: 66454284cad47e81a9d5ea8ff92f4ed586f8d780
-  specs:
-    svn (0.0.1)
-
 DEPENDENCIES
-  git (>= 0)
-  jenkins (>= 0)
   maestrodev/ant (~> 1.0.3)
   maestrodev/archiva (~> 1.0.0)
+  maestrodev/git (>= 1.0.0)
+  maestrodev/jenkins (>= 0)
   maestrodev/maestro (>= 1.0.0)
   maestrodev/maven (>= 0.0.2)
+  maestrodev/rvm (>= 0)
   maestrodev/sonar (~> 1.0.0)
   maestrodev/ssh_keygen (~> 1.0.0)
-  rvm (>= 0)
-  svn (>= 0)
+  maestrodev/svn (>= 0)
 

@@ -2,10 +2,11 @@ require 'bundler'
 Bundler.require(:rake)
 require 'rake/clean'
 
-CLEAN.include(['spec/fixtures/', 'doc'])
+CLEAN.include('spec/fixtures/', 'doc', 'pkg')
 CLOBBER.include('.tmp', '.librarian')
 
 require 'puppetlabs_spec_helper/rake_tasks'
+require 'puppet_blacksmith/rake_tasks'
 
 PuppetLint.configuration.send("disable_80chars")
 
@@ -17,3 +18,5 @@ end
 task :spec_prep => :librarian_spec_prep
 
 task :default => [:clean, :spec]
+
+task :release => [:clean, :spec, 'module:tag', 'module:push', 'module:bump_commit']
