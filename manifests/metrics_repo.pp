@@ -12,13 +12,13 @@ class maestro_nodes::metrics_repo{
   class { 'nodejs':
   
   } ->
-  package { 'mongo-statsd-backend':
-    ensure   => present,
-    provider => npm,
-  } ->
   class { 'statsd':
     backends => [ 'mongo-statsd-backend' ],
     config => $statsd_config,
+  } ->
+  package { 'mongo-statsd-backend':
+      ensure   => present,
+      provider => npm,
   }
-  
+
 }
