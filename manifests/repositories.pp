@@ -4,7 +4,9 @@ class maestro_nodes::repositories(
   $port = '8082',
   $user = 'admin',
   $password = 'admin1',
-  $default_repo_config = {} ) {
+  $default_repo_config = {},
+  $maven_mirrors = undef,
+  $maven_servers = undef ) {
 
   $deploy_repo_url = "http://${host}:${port}/archiva/repository/snapshots"
   
@@ -25,7 +27,14 @@ class maestro_nodes::repositories(
     url      => $deploy_repo_url,
   }
 
-  $mirrors = [$repo]
-  $servers = [$repo, $maestro_repo]
+  $mirrors = $maven_mirrors ? {
+    undef   => [$repo],
+    default => $maven_mirrors,
+  }
+
+  $servers = $maven_servers ? {
+    undef   => [$repo, $maestro_repo],
+    default => $maven_servers,
+  }
 
 }
