@@ -109,7 +109,17 @@ class maestro_nodes::agent(
   }
 
   # ssh keys for cloud provisioning
+  if !defined(File["${agent_user_home}/.ssh"]) {
+    file { "${agent_user_home}/.ssh":
+      ensure => directory,
+      owner  => $agent_user,
+      group  => $agent_group,
+      mode   => 0700,
+    }
+  }
+  
   ssh_keygen { $agent_user :
     home => $agent_user_home,
+    require => File["${agent_user_home}/.ssh"],
   }
 }
