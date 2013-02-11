@@ -4,7 +4,8 @@ class maestro_nodes::archivaserver(
   $maxmemory       = '256',
   $forwarded       = false,
   $application_url = "http://localhost:8082/archiva",
-  $db_password     = $maestro_nodes::database::password) {
+  $db_password     = $maestro_nodes::database::password,
+  $mail_from       = $maestro_nodes::mail::mail_from) {
 
   $central_repo_url = 'https://repo.maestrodev.com/archiva/repository/central'
 
@@ -24,6 +25,7 @@ class maestro_nodes::archivaserver(
     jdbc_driver_url => $maestro_nodes::database::jdbc_driver_url,
     jetty_version   => 7,
     maxmemory       => '64',
+    mail_from       => $mail_from,
     require         => Class['maestro::repository'],
   }
   file { "basic/archiva.xml":
