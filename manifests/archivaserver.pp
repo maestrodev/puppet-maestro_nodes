@@ -24,6 +24,7 @@ class maestro_nodes::archivaserver(
     users_jdbc      => $maestro_nodes::database::maestro_jdbc,
     jdbc_driver_url => $maestro_nodes::database::jdbc_driver_url,
     jetty_version   => 7,
+    manage_user     => hiera('archiva::manage_user', true),
     maxmemory       => '64',
     mail_from       => $mail_from,
     require         => Class['maestro::repository'],

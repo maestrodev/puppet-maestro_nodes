@@ -1,9 +1,9 @@
 class maestro_nodes::mail(
-  $name,
-  $address,
+  $from_name,
+  $from_address,
 ) {
   $mail_from = {
-    name    => $name,
-    address => $address,
+    name    => $from_name,
+    address => $from_address,
   }
 }
