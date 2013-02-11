@@ -15,7 +15,7 @@ class maestro_nodes::archivaserver(
     require   => [Class['postgresql::server'], Class['maestro_nodes::database']],
   } ->
   class { 'archiva':
-    version         => "1.4-M1-maestro-3.4.3.2",
+    version         => hiera('archiva::version', "1.4-M1-maestro-3.4.3.2"),
     port            => $port,
     forwarded       => $forwarded,
     repo            => $maestro::repository::maestrodev,
