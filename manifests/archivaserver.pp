@@ -1,7 +1,7 @@
 # Apache Archiva configured with a Postgres database and some default repositories
 class maestro_nodes::archivaserver(
   $port            = 8082,
-  $maxmemory       = '256',
+  $maxmemory       = '64',
   $forwarded       = false,
   $application_url = "http://localhost:8082/archiva",
   $db_password     = $maestro_nodes::database::password,
@@ -19,13 +19,13 @@ class maestro_nodes::archivaserver(
     port            => $port,
     forwarded       => $forwarded,
     repo            => $maestro::repository::maestrodev,
-    application_url => $application_url,
+    application_url => hiera('archiva::application_url', $application_url),
     archiva_jdbc    => $maestro_nodes::database::maestro_jdbc,
     users_jdbc      => $maestro_nodes::database::maestro_jdbc,
     jdbc_driver_url => $maestro_nodes::database::jdbc_driver_url,
     jetty_version   => 7,
     manage_user     => hiera('archiva::manage_user', true),
-    maxmemory       => '64',
+    maxmemory       => hiera('archiva::maxmemory', $maxmemory),
     mail_from       => $mail_from,
     require         => Class['maestro::repository'],
   }
