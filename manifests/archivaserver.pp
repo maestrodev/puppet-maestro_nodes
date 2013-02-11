@@ -5,9 +5,9 @@ class maestro_nodes::archivaserver(
   $forwarded       = false,
   $application_url = "http://localhost:8082/archiva",
   $db_password     = $maestro_nodes::database::password,
-  $mail_from       = $maestro_nodes::mail::mail_from) {
-
+  $mail_from       = $maestro_nodes::mail::mail_from,
   $central_repo_url = 'https://repo.maestrodev.com/archiva/repository/central'
+) {
 
   postgresql::db{ 'archiva':
     user      => 'maestro',
