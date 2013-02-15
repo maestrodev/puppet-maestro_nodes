@@ -3,7 +3,8 @@
 
 class maestro_nodes::agent(
   $repo,
-  $version = undef) {
+  $version   = undef,
+  $maxmemory = '64') {
 
   include maestro::params
 
@@ -45,6 +46,7 @@ class maestro_nodes::agent(
   class { 'maestro::agent':
     repo          => $repo,
     agent_version => $version,
+    maxmemory     => $maxmemory,
   }
 
   # Git
