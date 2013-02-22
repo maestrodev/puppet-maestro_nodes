@@ -15,7 +15,7 @@ class maestro_nodes::archivaserver(
     require   => [Class['postgresql::server'], Class['maestro_nodes::database']],
   } ->
   class { 'archiva':
-    version         => hiera('archiva::version', "1.4-M1-maestro-3.4.3.2"),
+    version         => hiera('archiva::version', "1.4-M1-maestro-3.4.3.4"),
     port            => $port,
     forwarded       => $forwarded,
     repo            => $maestro::repository::maestrodev,
@@ -23,7 +23,6 @@ class maestro_nodes::archivaserver(
     archiva_jdbc    => $maestro_nodes::database::maestro_jdbc,
     users_jdbc      => $maestro_nodes::database::maestro_jdbc,
     jdbc_driver_url => $maestro_nodes::database::jdbc_driver_url,
-    jetty_version   => 7,
     manage_user     => hiera('archiva::manage_user', true),
     maxmemory       => hiera('archiva::maxmemory', $maxmemory),
     mail_from       => $mail_from,
