@@ -26,8 +26,8 @@ class maestro_nodes::puppetenterprise($repo = $maestro::repository::maestrodev, 
     content => template("maestro_nodes/puppet_enterprise_installer.txt.erb"),
   } ->
   exec { '/pe-puppet-agent':
-    command => '/usr/local/bin/puppet agent --test',
-    path => '/usr/local/bin',
+    command => '/opt/puppet/bin/puppet agent --test',
+    return => [0, 2],
   }
 
 }
