@@ -27,7 +27,7 @@ class maestro_nodes::puppetenterprise($repo = $maestro::repository::maestrodev, 
   } ->
   exec { '/pe-puppet-agent':
     command => '/opt/puppet/bin/puppet agent --test',
-    return => [0, 2],
+    returns => [0, 2],
   }
 
 }
