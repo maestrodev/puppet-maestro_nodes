@@ -9,7 +9,6 @@ summary 'Maestro related services'
 description 'Maestro related services installation and configuration: jenkins, sonar, archiva,...'
 
 dependency 'maestrodev/ant', '>=1.0.3'
-dependency 'maestrodev/android', '>=1.0.0'
 dependency 'maestrodev/archiva', '1.x'
 dependency 'maestrodev/git', '1.x'
 dependency 'maestrodev/jenkins', '1.x'
