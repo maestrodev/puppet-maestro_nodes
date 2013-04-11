@@ -32,14 +32,14 @@ FORGE
     puppetlabs/stdlib (3.2.0)
 
 DEPENDENCIES
-  maestrodev/ant (~> 1.0.3)
-  maestrodev/archiva (~> 1.0.0)
+  maestrodev/ant (>= 1.0.3)
+  maestrodev/archiva (~> 1.0)
   maestrodev/git (>= 1.0.0)
   maestrodev/jenkins (>= 0)
   maestrodev/maestro (>= 1.0.0)
   maestrodev/maven (>= 0.0.2)
   maestrodev/rvm (>= 0)
-  maestrodev/sonar (~> 1.0.0)
-  maestrodev/ssh_keygen (~> 1.0.0)
+  maestrodev/sonar (~> 1.0)
+  maestrodev/ssh_keygen (~> 1.0)
   maestrodev/svn (>= 0)
 
