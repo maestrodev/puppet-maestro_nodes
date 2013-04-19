@@ -1,5 +1,6 @@
 # Sonar server using postgres database
 class maestro_nodes::sonarserver(
+  $port = 8083,
   $db_password = $maestro_nodes::database::password) {
 
   postgresql::db{ 'sonar':
@@ -8,7 +9,7 @@ class maestro_nodes::sonarserver(
     require   => [Class['postgresql::server'], Class['maestro_nodes::database']],
   } ->
   class { sonar:
-    port => 8083,
+    port => $port,
     jdbc => $maestro_nodes::database::sonar_jdbc,
   }
 }
