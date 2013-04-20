@@ -1,4 +1,4 @@
-class maestro_nodes::nginx(
+class maestro_nodes::nginxproxy(
   $hostname = $::fqdn,
   $maestro_port = $maestro::maestro::port,
   $ssl = false,

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'maestro_nodes::nginx' do
+describe 'maestro_nodes::nginxproxy' do
 
   default_params = {
       :maestro_port => '8080',
@@ -22,6 +22,8 @@ describe 'maestro_nodes::nginx' do
     it { should contain_nginx__resource__upstream("maestro_app").with_members(["localhost:8080"]) }
 
     it { should_not contain_file('/etc/nginx/conf.d/default.conf') }
+
+    it { should contain_service('nginx') }
   end
 
   context "with SSL" do
@@ -41,6 +43,8 @@ describe 'maestro_nodes::nginx' do
     it { should contain_nginx__resource__upstream("maestro_app").with_members(["localhost:8080"]) }
 
     it { should contain_file('/etc/nginx/conf.d/default.conf').with_source("puppet:///modules/eval/nginx/default.conf") }
+
+    it { should contain_service('nginx') }
   end
 
 end

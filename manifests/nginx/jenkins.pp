@@ -1,7 +1,7 @@
 class maestro_nodes::nginx::jenkins(
   $jenkins_port = $maestro_nodes::jenkinsserver::port,
-  $hostname = $maestro_nodes::nginx::hostname,
-  $ssl = $maestro_nodes::nginx::ssl,
+  $hostname = $maestro_nodes::nginxproxy::hostname,
+  $ssl = $maestro_nodes::nginxproxy::ssl,
 ) {
   nginx::resource::location { 'jenkins_app':
     ensure => present,
