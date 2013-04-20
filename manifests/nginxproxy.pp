@@ -12,7 +12,7 @@ class maestro_nodes::nginxproxy(
 
     file { '/etc/nginx/conf.d/default.conf':
       ensure => present,
-      source => "puppet:///modules/eval/nginx/default.conf",
+      source => "puppet:///modules/maestro_nodes/nginx/default.conf",
       notify => Service[nginx],
       require => Package[nginx],
     }

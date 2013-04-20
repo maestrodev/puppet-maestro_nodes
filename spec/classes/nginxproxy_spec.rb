@@ -42,7 +42,7 @@ describe 'maestro_nodes::nginxproxy' do
 
     it { should contain_nginx__resource__upstream("maestro_app").with_members(["localhost:8080"]) }
 
-    it { should contain_file('/etc/nginx/conf.d/default.conf').with_source("puppet:///modules/eval/nginx/default.conf") }
+    it { should contain_file('/etc/nginx/conf.d/default.conf').with_source("puppet:///modules/maestro_nodes/nginx/default.conf") }
 
     it { should contain_service('nginx') }
   end
