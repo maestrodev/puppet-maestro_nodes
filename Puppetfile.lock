@@ -31,6 +31,14 @@ FORGE
       puppetlabs/stdlib (< 4.0.0, >= 3.2.0)
     puppetlabs/stdlib (3.2.0)
 
+GIT
+  remote: https://github.com/jfryman/puppet-nginx.git
+  ref: master
+  sha: e333b4cca0c348e30af8fa5cebeeb76b61866d2f
+  specs:
+    nginx ()
+      puppetlabs/stdlib (>= 0.1.6)
+
 DEPENDENCIES
   maestrodev/ant (>= 1.0.3)
   maestrodev/archiva (~> 1.0)
@@ -42,4 +50,5 @@ DEPENDENCIES
   maestrodev/sonar (~> 1.0)
   maestrodev/ssh_keygen (~> 1.0)
   maestrodev/svn (>= 0)
+  nginx (>= 0)
 

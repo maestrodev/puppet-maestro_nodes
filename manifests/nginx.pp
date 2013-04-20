@@ -9,6 +9,13 @@ class maestro_nodes::nginx(
 
   if $ssl == true {
     $port = '443'
+
+    file { '/etc/nginx/conf.d/default.conf':
+      ensure => present,
+      source => "puppet:///modules/eval/nginx/default.conf",
+      notify => Service[nginx],
+      require => Package[nginx],
+    }
   } else {
     $port = '80'
   }
@@ -24,13 +31,6 @@ class maestro_nodes::nginx(
 
   nginx::resource::upstream { 'maestro_app':
     ensure => present,
-    members => "localhost:$maestro_port",
-  }
-
-  file { '/etc/nginx/conf.d/default.conf':
-    ensure => present,
-    source => "puppet:///modules/eval/nginx/default.conf",
-    notify => Service[nginx],
-    require => Package[nginx],
+    members => ["localhost:$maestro_port"],
   }
 }

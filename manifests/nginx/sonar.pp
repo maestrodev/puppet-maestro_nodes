@@ -14,6 +14,6 @@ class maestro_nodes::nginx::sonar(
 
   nginx::resource::upstream { 'sonar_app':
     ensure => present,
-    members => "localhost:$sonar_port",
+    members => ["localhost:$sonar_port"],
   }
 }

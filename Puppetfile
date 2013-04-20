@@ -10,3 +10,7 @@ mod 'maestrodev/maven', '>=0.0.2'
 mod 'maestrodev/sonar', '~>1.0'
 mod 'maestrodev/rvm'
 mod 'maestrodev/ssh_keygen', '~>1.0'
+
+# until released (not listed in Modulefile until then, forge version is too
+# old)
+mod 'nginx', :git => 'https://github.com/jfryman/puppet-nginx.git'

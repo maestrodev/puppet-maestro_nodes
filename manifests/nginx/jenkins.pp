@@ -14,6 +14,6 @@ class maestro_nodes::nginx::jenkins(
 
   nginx::resource::upstream { 'jenkins_app':
     ensure => present,
-    members => "localhost:$jenkins_port",
+    members => ["localhost:$jenkins_port"],
   }
 }

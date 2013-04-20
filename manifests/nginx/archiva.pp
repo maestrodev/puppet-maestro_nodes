@@ -14,6 +14,6 @@ class maestro_nodes::nginx::archiva(
 
   nginx::resource::upstream { 'archiva_app':
     ensure => present,
-    members => "localhost:$archiva_port",
+    members => ["localhost:$archiva_port"],
   }
 }
