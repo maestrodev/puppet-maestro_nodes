@@ -16,8 +16,4 @@ class maestro_nodes::maestrofirewall {
   }
 
   include maestro_nodes::firewall::pre, maestro_nodes::firewall::post
-
 }
-
-
-
