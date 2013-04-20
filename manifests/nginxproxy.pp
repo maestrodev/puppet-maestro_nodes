@@ -18,6 +18,12 @@ class maestro_nodes::nginxproxy(
     }
   } else {
     $port = '80'
+
+    file { '/etc/nginx/conf.d/default.conf':
+      ensure => absent,
+      notify => Service[nginx],
+      require => Package[nginx],
+    }
   }
 
   nginx::resource::vhost { $hostname:
