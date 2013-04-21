@@ -5,6 +5,16 @@ class maestro_nodes::nginxproxy(
   $ssl_cert = undef,
   $ssl_key = undef,
 ) {
+
+  yumrepo { "epel":
+    name        => 'epel',
+    baseurl     => absent,
+    enabled     => 1,
+    mirrorlist  => 'http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch',
+    gpgcheck    => 0,
+    before      => Package[nginx],
+  }
+
   include nginx
 
   if $ssl == true {
