@@ -18,6 +18,6 @@ dependency 'maestrodev/maven', '>=0.0.2'
 dependency 'maestrodev/sonar', '~>1.0.0'
 dependency 'maestrodev/rvm', '>=1.0.0'
 dependency 'maestrodev/ssh_keygen', '~>1.0.0'
-dependency 'puppetlabs/mongodb', '>=1.0.0'
+dependency 'puppetlabs/mongodb'
 dependency 'maestrodev/activemq', '>=1.0.0'
 
