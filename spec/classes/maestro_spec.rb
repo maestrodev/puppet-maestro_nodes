@@ -19,7 +19,6 @@ describe 'maestro_nodes::maestro' do
   it { should include_class('maestro::maestro') }
   it { should include_class('maestro_nodes::metrics_repo') }
   it { should include_class('maestro_nodes::database') }
-  it { should include_class('maestro_nodes::nginxproxy') }
   it { should include_class('activemq') }
   it { should include_class('activemq::stomp') }
   it { should include_class('maestro::plugins') }
