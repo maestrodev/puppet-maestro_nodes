@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'maestro_nodes::maestro' do
+describe 'maestro_nodes::maestroserver' do
 
 
   DEFAULT_MAESTRO_PARAMS = {
