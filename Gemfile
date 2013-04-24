@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 group :rake do
   gem 'puppet',       '>=3.0.1'

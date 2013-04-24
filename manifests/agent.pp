@@ -38,8 +38,9 @@ class maestro_nodes::agent(
 
     }
   }
-  
-  
+
+  include maestro_nodes::repositories
+
   $agent_user = $maestro::params::agent_user
   $agent_group = $maestro::params::agent_group
   $agent_user_home = $maestro::params::agent_user_home

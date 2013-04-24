@@ -5,12 +5,17 @@ mod 'maestrodev/archiva', '~>1.0'
 mod 'maestrodev/git', '>=1.0.0'
 mod 'maestrodev/svn'
 mod 'maestrodev/jenkins'
-mod 'maestrodev/maestro', '>=1.0.0'
+mod 'maestrodev/maestro', '>=1.1.0'
 mod 'maestrodev/maven', '>=0.0.2'
 mod 'maestrodev/sonar', '~>1.0'
 mod 'maestrodev/rvm'
 mod 'maestrodev/ssh_keygen', '~>1.0'
+mod 'puppetlabs/mongodb'
+mod 'maestrodev/activemq'
+
 
 # until released (not listed in Modulefile until then, forge version is too
 # old)
 mod 'nginx', :git => 'https://github.com/jfryman/puppet-nginx.git'
+mod 'puppetlabs/nodejs',     :git => 'https://github.com/maestrodev/puppetlabs-nodejs.git'
+mod 'statsd',                :git => 'https://github.com/maestrodev/puppet-statsd.git'
