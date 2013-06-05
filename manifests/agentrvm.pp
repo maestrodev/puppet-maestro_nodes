@@ -3,10 +3,6 @@ class maestro_nodes::agentrvm(
 ) {
   include rvm
 
-  # currently missing from puppet-rvm's list of dependencies
-  package { [ 'libyaml-devel', 'libffi-devel', 'libtool', 'bison' ]:
-    ensure => installed,
-  } ->
   rvm::system_user { $agent_user: } ->
   rvm_system_ruby { 'ruby-1.8.7-p352':
     ensure      => 'present',
