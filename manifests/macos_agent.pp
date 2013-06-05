@@ -9,15 +9,16 @@ class maestro_nodes::macos_agent(
   $maxmemory = '128') {
 
   # facts.d folders
-  file { '/etc/facts.d':
+  file { "/etc/facts.d":
+    ensure  => absent,
+    recurse => true,
+    force   => true,
+  }
+  file { "/etc/facter":
     ensure => directory,
-  } ->
-  file { '/etc/facter':
+  }
+  file { "/etc/facter/facts.d":
     ensure => directory,
-  } ->
-  file { '/etc/facter/facts.d':
-    ensure => link,
-    target => '/etc/facts.d',
   }
 
   include maestro

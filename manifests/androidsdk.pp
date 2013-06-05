@@ -21,8 +21,11 @@ class maestro_nodes::androidsdk($user, $group, $home, $proxy_host = undef, $prox
   }
   
   # add a custom fact
-  file { '/etc/facts.d/android.yaml':
+  file { '/etc/facter/facts.d/android.yaml':
     content => "android_version: ${android::version}",
     notify  => Service['maestro-agent'],
+  }
+  file { '/etc/facts.d/android.yaml':
+    ensure => absent,
   }
 }
