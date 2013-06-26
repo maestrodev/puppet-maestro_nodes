@@ -13,4 +13,10 @@ class maestro_nodes::agentrvm(
     default_use => true,
     require     => Package['git'],
   }
+
+  # if we have a epel stage defined in parent nodes ensure it runs before installing rvm
+  # as some rvm dependencies are in epel repositories
+  if defined(Stage['epel']) {
+    Stage['epel'] -> Stage['rvm-install']
+  }
 }
