@@ -17,6 +17,6 @@ class maestro_nodes::maestroserver($repo, $disabled = false) {
   include activemq
   include activemq::stomp
   include maestro::plugins
-
+  include maestro_nodes::nginxproxy
 
 }

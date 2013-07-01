@@ -12,6 +12,9 @@ mod 'maestrodev/rvm', '>=1.1.2'
 mod 'maestrodev/ssh_keygen', '>=1.0.0'
 mod 'puppetlabs/mongodb', '>=0.1.0'
 mod 'maestrodev/activemq', '>=1.0.0'
+mod 'puppetlabs/java', '>=0.3.0'
+mod 'puppetlabs/ntp'
+mod 'stahnma/epel'
 
 
 # until released (not listed in Modulefile until then, forge version is too

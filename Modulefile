@@ -20,4 +20,6 @@ dependency 'maestrodev/rvm', '>=1.0.0'
 dependency 'maestrodev/ssh_keygen', '>=1.0.0'
 dependency 'puppetlabs/mongodb', '>=0.1.0'
 dependency 'maestrodev/activemq', '>=1.0.0'
-
+dependency 'puppetlabs/java', '>=0.3.0'
+dependency 'puppetlabs/ntp'
+dependency 'stahnma/epel'

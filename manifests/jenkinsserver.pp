@@ -36,4 +36,6 @@ class maestro_nodes::jenkinsserver(
     destination => '/var/lib/jenkins/plugins/git.hpi',
     notify      => Service['jenkins']
   }
+
+  include maestro_nodes::nginx::jenkins
 }

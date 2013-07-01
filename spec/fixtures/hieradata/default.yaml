@@ -1,0 +1,8 @@
+maestro_nodes::agent::repo:
+  url: 'https://repo.maestrodev.com/archiva/repository/all'
+  username: 'your_username'
+  password: 'CHANGEME'
+
+maestro_nodes::nginx::archiva::hostname: '%{fqdn}'
+maestro_nodes::nginx::jenkins::hostname: '%{fqdn}'
+maestro_nodes::nginx::sonar::hostname: '%{fqdn}'

@@ -38,4 +38,6 @@ class maestro_nodes::archivaserver(
     require => File[$archiva::home],
     notify  => Service[$archiva::service],
   } 
+
+  include maestro_nodes::nginx::archiva
 }

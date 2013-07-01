@@ -1,6 +1,10 @@
 class maestro_nodes::agentrvm(
   $agent_user = $maestro::params::agent_user,
 ) {
+
+  include maestro_nodes::agent
+
+  # rvm needs to be included after other classes that install packages that rvm also installs
   include rvm
 
   rvm::system_user { $agent_user: } ->

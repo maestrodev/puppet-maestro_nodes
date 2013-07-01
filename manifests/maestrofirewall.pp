@@ -10,10 +10,5 @@ class maestro_nodes::maestrofirewall {
     purge => true,
   }
 
-  Firewall {
-    before  => Class['maestro_nodes::firewall::post'],
-    require => Class['maestro_nodes::firewall::pre'],
-  }
-
   include maestro_nodes::firewall::pre, maestro_nodes::firewall::post
 }
