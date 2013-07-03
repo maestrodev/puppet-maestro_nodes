@@ -37,5 +37,4 @@ class maestro_nodes::jenkinsserver(
     notify      => Service['jenkins']
   }
 
-  include maestro_nodes::nginx::jenkins
 }

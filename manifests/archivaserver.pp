@@ -39,5 +39,4 @@ class maestro_nodes::archivaserver(
     notify  => Service[$archiva::service],
   } 
 
-  include maestro_nodes::nginx::archiva
 }

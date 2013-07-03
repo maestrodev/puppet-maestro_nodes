@@ -1,5 +1,5 @@
 # This class includes everything needed to install and configure a maestro server
-class maestro_nodes::maestroserver($repo, $disabled = false) {
+class maestro_nodes::maestroserver($repo=undef, $disabled = false) {
 
   # This hack is to get around hiera boolean shortcomings
   $enabled = $disabled ? { true => false, default => true}
@@ -17,6 +17,5 @@ class maestro_nodes::maestroserver($repo, $disabled = false) {
   include activemq
   include activemq::stomp
   include maestro::plugins
-  include maestro_nodes::nginxproxy
 
 }
