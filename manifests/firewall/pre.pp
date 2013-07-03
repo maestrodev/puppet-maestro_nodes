@@ -26,7 +26,7 @@ class maestro_nodes::firewall::pre {
   } ->
   firewall { '020 allow http/https':
     proto  => 'tcp',
-    port   => [80,443],
+    port   => [80,443,8080],
     action => 'accept',
   } ->
   firewall { '030 allow stomp':
