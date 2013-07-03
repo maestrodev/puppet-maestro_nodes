@@ -94,6 +94,11 @@ class maestro_nodes::agent(
     provider => gem,
     ensure => installed,
   }
+  # JSON - for Facter in the agent
+  package { 'json':
+    provider => gem,
+    ensure => installed,
+  }
 
   # server_key for autoconnect and autoactivate
   file { '.maestro':
