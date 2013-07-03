@@ -31,6 +31,5 @@ class maestro_nodes::parent() {
   }
 
   # Need epel for rvm installation and nginx
-  stage { 'epel': before => Stage['rvm-install'] }
   class { 'epel': stage => 'epel' }
 }
