@@ -2,6 +2,8 @@ Dir["./spec/support/**/*.rb"].each {|f| require f}
 require 'puppetlabs_spec_helper/module_spec_helper'
 
 RSpec.configure do |c|
+  c.include MaestroNodes::CentOS
+
   c.before(:all) do
     # Using Puppet 3 configure hiera
     if Integer(Puppet.version.split('.').first) >= 3

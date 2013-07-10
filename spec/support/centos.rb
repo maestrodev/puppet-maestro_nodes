@@ -1,12 +1,24 @@
 # common utilities for CentOS servers
 
-def centos_facts
-  {
-    :kernel          => 'Linux',
-    :operatingsystem => 'CentOS',
-    :operatingsystemrelease => '6.2',
-    :osfamily        => 'RedHat',
-    :postgres_default_version => '8.4', # CentOS 6.3
-    :architecture    => 'x86_64'
-  }
+require 'rspec/core/shared_context'
+
+# we need a module to have a default shared_context, we can't use include_context from RSpec.configure
+module MaestroNodes
+  module CentOS
+    extend RSpec::Core::SharedContext
+
+    let(:centos_facts) {{
+      :kernel          => 'Linux',
+      :operatingsystem => 'CentOS',
+      :operatingsystemrelease => '6.2',
+      :osfamily        => 'RedHat',
+      :postgres_default_version => '8.4', # CentOS 6.3
+      :architecture    => 'x86_64'
+    }}
+    let(:facts) { centos_facts }
+  end
+end
+
+shared_context :centos do
+  extend MaestroNodes::CentOS
 end

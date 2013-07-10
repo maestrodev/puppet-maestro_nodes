@@ -11,7 +11,6 @@ describe 'maestro_nodes::puppetenterprise' do
       },
   }
 
-  let(:facts) { centos_facts }
   let(:params) { default_params }
 
   destdir = '/usr/local/src/puppet-enterprise-2.7.1-el-6-x86_64'

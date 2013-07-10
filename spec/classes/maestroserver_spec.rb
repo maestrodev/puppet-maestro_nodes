@@ -12,7 +12,6 @@ describe 'maestro_nodes::maestroserver' do
     :disabled => false
   }}
 
-  let(:facts) { centos_facts }
   let(:params) { default_params }
 
   it { should include_class('maestro::maestro') }

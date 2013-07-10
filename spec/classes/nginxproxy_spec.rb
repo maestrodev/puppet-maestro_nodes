@@ -6,9 +6,7 @@ describe 'maestro_nodes::nginxproxy' do
       :maestro_port => '8080',
   }
 
-  let(:facts) { {
-      :fqdn => "maestro.acme.com",
-  }.merge centos_facts }
+  let(:facts) { centos_facts.merge({:fqdn => "maestro.acme.com"}) }
 
   let(:params) { default_params }
 

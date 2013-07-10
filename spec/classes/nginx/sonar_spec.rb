@@ -8,8 +8,6 @@ describe 'maestro_nodes::nginx::sonar' do
       :ssl => false,
   }
 
-  let(:facts) { centos_facts }
-
   let(:params) { default_params }
 
   context "with default parameters" do

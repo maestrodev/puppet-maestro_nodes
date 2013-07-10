@@ -14,7 +14,6 @@ describe 'maestro_nodes::agent' do
     :version => '1.0'
   }
 
-  let(:facts) { centos_facts }
   let(:params) { DEFAULT_AGENT_PARAMS }
 
   it { should contain_user('maestro_agent') }
@@ -37,7 +36,6 @@ describe 'maestro_nodes::agent' do
   # ================================================ Linux ================================================
 
   context "when running on CentOS" do
-    let(:facts) { centos_facts }
     let(:params) { DEFAULT_AGENT_PARAMS }
 
     it { should_not contain_package("libxml2-devel") }
