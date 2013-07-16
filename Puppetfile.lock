@@ -22,6 +22,8 @@ FORGE
       maestrodev/wget (>= 0.0.1)
       puppetlabs/stdlib (>= 2.3.0)
     maestrodev/ssh_keygen (1.0.0)
+    maestrodev/statsd (1.0.3)
+      puppetlabs/nodejs (>= 0.2.0)
     maestrodev/svn (1.1.0)
     maestrodev/wget (1.2.0)
     puppetlabs/apt (1.2.0)
@@ -49,13 +51,6 @@ GIT
       puppetlabs/stdlib (>= 0.1.6)
 
 GIT
-  remote: https://github.com/maestrodev/puppet-statsd.git
-  ref: master
-  sha: 01b547a7ac82783c7669f47abd54ad05f544c3b5
-  specs:
-    statsd (1.0.2)
-
-GIT
   remote: https://github.com/puppetlabs/puppetlabs-nodejs.git
   ref: master
   sha: 6223d95ffd6e2955de5f86d26090cf9c430fb205
@@ -75,6 +70,7 @@ DEPENDENCIES
   maestrodev/rvm (>= 1.1.2)
   maestrodev/sonar (>= 1.0.0)
   maestrodev/ssh_keygen (>= 1.0.0)
+  maestrodev/statsd (>= 0)
   maestrodev/svn (>= 1.0.0)
   nginx (>= 0)
   puppetlabs/java (>= 0.3.0)
@@ -82,5 +78,4 @@ DEPENDENCIES
   puppetlabs/nodejs (>= 0)
   puppetlabs/ntp (>= 0)
   stahnma/epel (>= 0)
-  statsd (>= 0)
 
