@@ -8,3 +8,4 @@ doc/
 spec/fixtures/manifests/
 spec/fixtures/modules/
 modules/
+.vagrant/
