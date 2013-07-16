@@ -9,11 +9,8 @@ class maestro_nodes::metrics_repo{
   }
   $backends =   [ 'mongo-statsd-backend' ]
 
-  class { 'nodejs::params':
-    version => '0.8.19',
-  } ->
   class { 'nodejs':
-
+    manage_repo => true,
   } ->
   package { 'mongo-statsd-backend':
     ensure   => present,

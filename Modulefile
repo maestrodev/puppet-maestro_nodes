@@ -23,3 +23,8 @@ dependency 'maestrodev/activemq', '>=1.0.0'
 dependency 'puppetlabs/java', '>=0.3.0'
 dependency 'puppetlabs/ntp'
 dependency 'stahnma/epel'
+dependency 'maestrodev/statsd'
+
+# forge version not present or too old
+# dependency 'nginx'
+# dependency 'puppetlabs/nodejs'
