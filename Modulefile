@@ -1,5 +1,5 @@
 name 'maestrodev-maestro_nodes'
-version '1.2.8'
+version '1.2.9'
 
 author 'maestrodev'
 license 'Apache License, Version 2.0'
