@@ -10,5 +10,19 @@ class maestro_nodes::maestrofirewall {
     purge => true,
   }
 
-  include maestro_nodes::firewall::pre, maestro_nodes::firewall::post
+  class { 'maestro_nodes::firewall::pre':
+    before => Package['wget'],
+  }
+  class { 'maestro_nodes::firewall::post': }
+
+  firewall { '020 allow http/https':
+    proto  => 'tcp',
+    port   => [80,443,8080],
+    action => 'accept',
+  }
+  firewall { '030 allow stomp':
+    proto  => 'tcp',
+    port   => [61613],
+    action => 'accept',
+  }
 }

@@ -1,7 +1,7 @@
 class maestro_nodes::firewall::pre {
 
   Firewall {
-  require => undef,
+    require => undef,
   }
 
   # Default firewall rules.
@@ -22,16 +22,6 @@ class maestro_nodes::firewall::pre {
   firewall { '010 allow sshd port':
     proto  => 'tcp',
     port   => [22, 2222],
-    action => 'accept',
-  } ->
-  firewall { '020 allow http/https':
-    proto  => 'tcp',
-    port   => [80,443,8080],
-    action => 'accept',
-  } ->
-  firewall { '030 allow stomp':
-    proto  => 'tcp',
-    port   => [61613],
     action => 'accept',
   }
 }

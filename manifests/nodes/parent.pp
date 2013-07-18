@@ -19,7 +19,7 @@ node 'parent' {
   # wget runs sometimes between firewall commands and fails, Package['wget'] ensures it runs after firewall
   # TODO find a better way to express that wget::fetch and wget::authfetch depend on firewall
   Firewall {
-    before  => [Class['maestro_nodes::firewall::post'], Package['wget']],
+    before  => Class['maestro_nodes::firewall::post'],
     require => Class['maestro_nodes::firewall::pre'],
   }
 
