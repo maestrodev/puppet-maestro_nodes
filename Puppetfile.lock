@@ -1,6 +1,8 @@
 FORGE
   remote: http://forge.puppetlabs.com
   specs:
+    jfryman/nginx (0.0.2)
+      puppetlabs/stdlib (>= 0.1.6)
     maestrodev/activemq (1.2.0)
       maestrodev/wget (>= 1.0.0)
     maestrodev/ant (1.0.4)
@@ -33,6 +35,9 @@ FORGE
       puppetlabs/stdlib (>= 0.1.6)
     puppetlabs/mongodb (0.1.0)
       puppetlabs/apt (>= 0.0.2)
+    puppetlabs/nodejs (0.3.0)
+      puppetlabs/apt (>= 0.0.3)
+      puppetlabs/stdlib (>= 2.0.0)
     puppetlabs/ntp (0.3.0)
       puppetlabs/stdlib (>= 0.1.6)
     puppetlabs/postgresql (2.0.1)
@@ -42,24 +47,8 @@ FORGE
     puppetlabs/stdlib (3.2.0)
     stahnma/epel (0.0.5)
 
-GIT
-  remote: https://github.com/jfryman/puppet-nginx.git
-  ref: master
-  sha: 96af4c84afffe2ecff3041413fc39d0d7cf714d6
-  specs:
-    nginx (0.0.1)
-      puppetlabs/stdlib (>= 0.1.6)
-
-GIT
-  remote: https://github.com/puppetlabs/puppetlabs-nodejs.git
-  ref: master
-  sha: 6223d95ffd6e2955de5f86d26090cf9c430fb205
-  specs:
-    puppetlabs/nodejs (0.2.1)
-      puppetlabs/apt (>= 0.0.3)
-      puppetlabs/stdlib (>= 2.0.0)
-
 DEPENDENCIES
+  jfryman/nginx (>= 0)
   maestrodev/activemq (>= 1.0.0)
   maestrodev/ant (>= 1.0.3)
   maestrodev/archiva (>= 1.0.0)
@@ -72,10 +61,9 @@ DEPENDENCIES
   maestrodev/ssh_keygen (>= 1.0.0)
   maestrodev/statsd (>= 0)
   maestrodev/svn (>= 1.0.0)
-  nginx (>= 0)
   puppetlabs/java (>= 0.3.0)
   puppetlabs/mongodb (>= 0.1.0)
-  puppetlabs/nodejs (>= 0)
+  puppetlabs/nodejs (>= 0.3.0)
   puppetlabs/ntp (>= 0)
   stahnma/epel (>= 0)
 

@@ -16,8 +16,5 @@ mod 'puppetlabs/java', '>=0.3.0'
 mod 'puppetlabs/ntp'
 mod 'stahnma/epel'
 mod 'maestrodev/statsd'
-
-# until released (not listed in Modulefile until then, forge version is too
-# old)
-mod 'nginx',                 :git => 'https://github.com/jfryman/puppet-nginx.git'
-mod 'puppetlabs/nodejs',     :git => 'https://github.com/puppetlabs/puppetlabs-nodejs.git'
+mod 'puppetlabs/nodejs', '>=0.3.0'
+mod 'jfryman/nginx'

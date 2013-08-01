@@ -24,7 +24,5 @@ dependency 'puppetlabs/java', '>=0.3.0'
 dependency 'puppetlabs/ntp'
 dependency 'stahnma/epel'
 dependency 'maestrodev/statsd'
-
-# forge version not present or too old
-# dependency 'nginx'
-# dependency 'puppetlabs/nodejs'
+dependency 'puppetlabs/nodejs', '>=0.3.0'
+dependency 'jfryman/nginx'
