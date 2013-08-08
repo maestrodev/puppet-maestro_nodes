@@ -1,10 +1,10 @@
 class maestro_nodes::nginxproxy(
-  $hostname = $::fqdn,
+  $hostname = $maestro_nodes::nginx::params::hostname,
   $maestro_port = $maestro::maestro::port,
-  $ssl = false,
-  $ssl_cert = undef,
-  $ssl_key = undef,
-) {
+  $ssl = $maestro_nodes::nginx::params::ssl,
+  $ssl_cert = $maestro_nodes::nginx::params::ssl_cert,
+  $ssl_key = $maestro_nodes::nginx::params::ssl_key,
+) inherits maestro_nodes::nginx::params {
 
   include nginx
 

@@ -1,8 +1,9 @@
 class maestro_nodes::nginx::sonar(
   $sonar_port = $maestro_nodes::sonarserver::port,
-  $hostname = $maestro_nodes::nginxproxy::hostname,
-  $ssl = $maestro_nodes::nginxproxy::ssl,
-) {
+  $hostname = $maestro_nodes::nginx::params::hostname,
+  $ssl = $maestro_nodes::nginx::params::ssl,
+) inherits maestro_nodes::nginx::params {
+
   nginx::resource::location { 'sonar_app':
     ensure => present,
     location => '/sonar',
