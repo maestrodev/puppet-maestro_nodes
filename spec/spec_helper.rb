@@ -11,6 +11,9 @@ RSpec.configure do |c|
       raise "Hiera config file does not exist: #{hiera_config}" unless File.exists? hiera_config
       Puppet[:hiera_config] = hiera_config
     end
+  end
+
+  c.before(:each) do
     Puppet::Util::Log.level = :warning
     Puppet::Util::Log.newdestination(:console)
   end
