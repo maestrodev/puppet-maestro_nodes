@@ -2,13 +2,11 @@ require 'spec_helper'
 
 describe 'maestro_nodes::nginx::sonar' do
 
-  default_params = {
+  let(:params) { {
       :sonar_port => '8083',
       :hostname => 'maestro.acme.com',
       :ssl => false,
-  }
-
-  let(:params) { default_params }
+  } }
 
   context "with default parameters" do
     it { should contain_nginx__resource__location("sonar_app").with(
@@ -23,7 +21,7 @@ describe 'maestro_nodes::nginx::sonar' do
   end
 
   context "with SSL" do
-    let(:params) { default_params.merge ({
+    let(:params) { super().merge ({
         :ssl => true,
     }) }
     it { should contain_nginx__resource__location("sonar_app").with(

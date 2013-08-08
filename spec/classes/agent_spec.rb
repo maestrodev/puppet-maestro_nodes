@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe 'maestro_nodes::agent' do
 
-  USER_HOME="/var/local/maestro-agent"
+  let(:user_home) { "/var/local/maestro-agent" }
 
-  DEFAULT_AGENT_PARAMS = {
+  let(:params) { {
     :repo => {
         'id' => 'maestro-mirror',
         'username' => 'u',
@@ -12,21 +12,19 @@ describe 'maestro_nodes::agent' do
         'url' => 'https://repo.maestrodev.com/archiva/repository/all'
     },
     :version => '1.0'
-  }
-
-  let(:params) { DEFAULT_AGENT_PARAMS }
+  } }
 
   it { should contain_user('maestro_agent') }
 
   it { should contain_package('git').with_ensure('present') }
   it { should contain_package('subversion').with_ensure('installed') }
 
-  it { should contain_file("#{USER_HOME}/.m2/settings.xml").with_owner('maestro_agent') }
-  it { should_not contain_file("#{USER_HOME}/.ssh/config") }
+  it { should contain_file("#{user_home}/.m2/settings.xml").with_owner('maestro_agent') }
+  it { should_not contain_file("#{user_home}/.ssh/config") }
 
   it { 
-    should contain_file("server.key").with_path("#{USER_HOME}/.maestro/server.key") 
-    should contain_file("#{USER_HOME}").with_ensure(:directory)
+    should contain_file("server.key").with_path("#{user_home}/.maestro/server.key") 
+    should contain_file("#{user_home}").with_ensure(:directory)
   }
 
   it { should_not contain_file("/home/agent").with_ensure(:directory) }
@@ -36,8 +34,6 @@ describe 'maestro_nodes::agent' do
   # ================================================ Linux ================================================
 
   context "when running on CentOS" do
-    let(:params) { DEFAULT_AGENT_PARAMS }
-
     it { should_not contain_package("libxml2-devel") }
   end
 
@@ -45,8 +41,6 @@ describe 'maestro_nodes::agent' do
 
   context "when running on OS X" do
     let(:facts) { {:operatingsystem => 'Darwin', :kernel => 'Darwin', :osfamily => 'Darwin'} }
-    let(:params) { DEFAULT_AGENT_PARAMS }
-
     it { should_not contain_package("libxml2-devel") }
   end
 

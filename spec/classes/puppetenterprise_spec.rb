@@ -2,16 +2,14 @@ require 'spec_helper'
 
 describe 'maestro_nodes::puppetenterprise' do
 
-  default_params = {
+  let(:params) { {
       :repo => {
           'id' => 'maestro-mirror',
           'username' => 'u',
           'password' => 'p',
           'url' => 'https://repo.maestrodev.com/archiva/repository/all'
       },
-  }
-
-  let(:params) { default_params }
+  } }
 
   destdir = '/usr/local/src/puppet-enterprise-2.7.1-el-6-x86_64'
   it { should contain_wget__authfetch('fetch-pe').with_destination '/usr/local/src/puppet-enterprise-el-6-x86_64-2.7.1.tar.gz' }

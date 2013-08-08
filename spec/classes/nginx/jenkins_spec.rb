@@ -2,13 +2,11 @@ require 'spec_helper'
 
 describe 'maestro_nodes::nginx::jenkins' do
 
-  default_params = {
+  let(:params) { {
       :jenkins_port => '8181',
       :hostname => 'maestro.acme.com',
       :ssl => false,
-  }
-
-  let(:params) { default_params }
+  } }
 
   context "with default parameters" do
     it { should contain_nginx__resource__location("jenkins_app").with(
@@ -23,7 +21,7 @@ describe 'maestro_nodes::nginx::jenkins' do
   end
 
   context "with SSL" do
-    let(:params) { default_params.merge ({
+    let(:params) { super().merge ({
         :ssl => true,
     }) }
     it { should contain_nginx__resource__location("jenkins_app").with(
