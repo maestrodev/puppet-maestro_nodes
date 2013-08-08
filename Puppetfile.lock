@@ -1,7 +1,7 @@
 FORGE
   remote: http://forge.puppetlabs.com
   specs:
-    jfryman/nginx (0.0.2)
+    jfryman/nginx (0.0.3)
       puppetlabs/stdlib (>= 0.1.6)
     maestrodev/activemq (1.2.1)
       maestrodev/wget (>= 1.0.0)
@@ -31,14 +31,14 @@ FORGE
     puppetlabs/apt (1.2.0)
       puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/firewall (0.4.0)
-    puppetlabs/java (0.3.0)
+    puppetlabs/java (1.0.1)
       puppetlabs/stdlib (>= 0.1.6)
     puppetlabs/mongodb (0.1.0)
       puppetlabs/apt (>= 0.0.2)
     puppetlabs/nodejs (0.3.0)
       puppetlabs/apt (>= 0.0.3)
       puppetlabs/stdlib (>= 2.0.0)
-    puppetlabs/ntp (0.3.0)
+    puppetlabs/ntp (1.0.1)
       puppetlabs/stdlib (>= 0.1.6)
     puppetlabs/postgresql (2.0.1)
       puppetlabs/apt (< 2.0.0, >= 1.1.0)
