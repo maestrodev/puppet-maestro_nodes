@@ -28,6 +28,10 @@ class maestro_nodes::archivaserver(
     mail_from       => $mail_from,
     require         => Class['maestro::repository'],
   }
+  if defined(Package['java']) {
+    Package['java'] -> Service['archiva']
+  }
+
   file { "basic/archiva.xml":
     path    => "${archiva::home}/conf/archiva.xml",
     owner   => $archiva::user,

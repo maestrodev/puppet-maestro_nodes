@@ -49,6 +49,9 @@ class maestro_nodes::agent(
     agent_version => $version,
     maxmemory     => $maxmemory,
   }
+  if defined(Package['java']) {
+    Package['java'] -> Service['maestro-agent']
+  }
 
   # Git
   class { git: } ->

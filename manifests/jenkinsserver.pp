@@ -14,6 +14,9 @@ class maestro_nodes::jenkinsserver(
     jenkins_prefix => $prefix,
     version => $version, # latest version fails to install
   }
+  if defined(Package['java']) {
+    Package['java'] -> Service['jenkins']
+  }
 
   maven::settings { 'jenkins' :
     home                => "/var/lib/jenkins",

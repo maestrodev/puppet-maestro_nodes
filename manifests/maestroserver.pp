@@ -18,4 +18,8 @@ class maestro_nodes::maestroserver($repo=undef, $disabled = false) {
   include activemq::stomp
   include maestro::plugins
 
+  if defined(Package['java']) {
+    Package['java'] -> Service['activemq']
+    Package['java'] -> Service['maestro']
+  }
 }
