@@ -3,7 +3,7 @@
 class maestro_nodes::jenkinsserver(
   $user = 'jenkins',
   $group = 'jenkins',
-  $version = '1.468-1.1',
+  $version = '1.523-1.1',
   $port = '8181',
   $prefix = undef ) {
 
@@ -12,7 +12,7 @@ class maestro_nodes::jenkinsserver(
     jenkins_group  => $group,
     jenkins_port   => $port,
     jenkins_prefix => $prefix,
-    version => $version, # latest version fails to install
+    version        => $version,
   }
   if defined(Package['java']) {
     Package['java'] -> Service['jenkins']
@@ -35,7 +35,7 @@ class maestro_nodes::jenkinsserver(
       require => Package['jenkins']
   } ->
   wget::fetch {'git.hpi':
-    source      => 'http://updates.jenkins-ci.org/download/plugins/git/1.1.12/git.hpi',
+    source      => 'http://updates.jenkins-ci.org/download/plugins/git/1.4.0/git.hpi',
     destination => '/var/lib/jenkins/plugins/git.hpi',
     notify      => Service['jenkins']
   }
