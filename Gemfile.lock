@@ -25,7 +25,7 @@ GEM
       facter (~> 1.6)
       hiera (~> 1.0)
       rgen (~> 0.6.5)
-    puppet-blacksmith (2.0.1)
+    puppet-blacksmith (2.0.2)
       nokogiri
       puppet (>= 2.7.16)
       rest-client
