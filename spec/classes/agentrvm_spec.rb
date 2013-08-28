@@ -16,4 +16,10 @@ describe 'maestro_nodes::agentrvm' do
     it { should contain_rvm__system_user('username') }
   end
 
+  context "when wget was already defined" do
+    let(:pre_condition) { ['package { "wget": }'] }
+
+    it { should contain_package('wget') }
+    it { should contain_rvm__system_user('maestro_agent') }
+  end
 end
