@@ -1,5 +1,6 @@
 forge 'http://forge.puppetlabs.com'
 
+mod 'puppetlabs/stdlib', '>=3.2.0'
 mod 'maestrodev/ant', '>=1.0.3'
 mod 'maestrodev/archiva', '>=1.0.0'
 mod 'maestrodev/git', '>=1.0.0'

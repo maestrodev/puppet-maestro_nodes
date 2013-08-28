@@ -8,6 +8,7 @@ source 'http://github.com/maestrodev/puppet-maestro_nodes'
 summary 'Maestro related services'
 description 'Maestro related services installation and configuration: jenkins, sonar, archiva,...'
 
+dependency 'puppetlabs/stdlib', '>=3.2.0'
 dependency 'maestrodev/ant', '>=1.0.3'
 dependency 'maestrodev/archiva', '>=1.0.0'
 dependency 'maestrodev/git', '>=1.0.0'

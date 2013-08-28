@@ -65,5 +65,6 @@ DEPENDENCIES
   puppetlabs/mongodb (>= 0.1.0)
   puppetlabs/nodejs (>= 0.3.0)
   puppetlabs/ntp (>= 0)
+  puppetlabs/stdlib (>= 3.2.0)
   stahnma/epel (>= 0)
 

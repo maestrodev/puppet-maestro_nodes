@@ -9,33 +9,10 @@ class maestro_nodes::agent(
   include maestro::params
 
   case $::osfamily {
-    'Linux': {
-      if ! defined(Package["libxml2-devel"]) {
-        package { "libxml2-devel":
-          ensure => installed,
-        }
-      }
-
-      if ! defined(Package["zlib-devel"]) {
-        package { "zlib-devel":
-          ensure => installed,
-        }
-     }
-
-     if ! defined(Package["libxslt-devel"]) {
-       package { "libxslt-devel":
-         ensure => installed,
-       }
-     }
-     if ! defined(Package["rubygems"]) {
-       package { "rubygems":
-         ensure => installed,
-         before => Package["rake"]
-       }
-     }
+    'RedHat': {
+      ensure_packages(['ruby-json']) # needed for facter to output json
     }
     default: {
-
     }
   }
 

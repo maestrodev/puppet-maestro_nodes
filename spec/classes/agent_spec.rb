@@ -34,14 +34,14 @@ describe 'maestro_nodes::agent' do
   # ================================================ Linux ================================================
 
   context "when running on CentOS" do
-    it { should_not contain_package("libxml2-devel") }
+    it { should contain_package("ruby-json") }
   end
 
   # ================================================ OS X ================================================
 
   context "when running on OS X" do
     let(:facts) { {:operatingsystem => 'Darwin', :kernel => 'Darwin', :osfamily => 'Darwin'} }
-    it { should_not contain_package("libxml2-devel") }
+    it { should_not contain_package("ruby-json") }
   end
 
 end
