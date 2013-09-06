@@ -47,7 +47,7 @@ class maestro_nodes::jenkinsserver(
     wget::fetch {'git-client.hpi':
       source      => "http://updates.jenkins-ci.org/download/plugins/git-client/${git_client_plugin_version}/git-client.hpi",
       destination => '/var/lib/jenkins/plugins/git-client.hpi',
-      notify      => Service['jenkins']
+      notify      => Service['jenkins'],
       require     => File['/var/lib/jenkins/plugins'],
     }
   }
