@@ -6,7 +6,8 @@ class maestro_nodes::jenkinsserver(
   $version = undef,
   $port = '8181',
   $prefix = undef,
-  $git_plugin_version = '1.4.0' ) {
+  $git_plugin_version = '1.4.0',
+  $git_client_plugin_version = '1.0.6' ) {
 
   class { 'jenkins' :
     jenkins_user   => $user,
@@ -39,6 +40,16 @@ class maestro_nodes::jenkinsserver(
     source      => "http://updates.jenkins-ci.org/download/plugins/git/${git_plugin_version}/git.hpi",
     destination => '/var/lib/jenkins/plugins/git.hpi',
     notify      => Service['jenkins']
+  }
+
+  # Required as of 1.2.0 of git plugin
+  if $git_client_plugin_version != undef {
+    wget::fetch {'git-client.hpi':
+      source      => "http://updates.jenkins-ci.org/download/plugins/git-client/${git_client_plugin_version}/git-client.hpi",
+      destination => '/var/lib/jenkins/plugins/git-client.hpi',
+      notify      => Service['jenkins']
+      require     => File['/var/lib/jenkins/plugins'],
+    }
   }
 
 }
