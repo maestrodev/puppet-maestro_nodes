@@ -4,7 +4,7 @@
 class maestro_nodes::agent(
   $repo,
   $version   = undef,
-  $maxmemory = '64') {
+  $maxmemory = '128') {
 
   include maestro::params
 
