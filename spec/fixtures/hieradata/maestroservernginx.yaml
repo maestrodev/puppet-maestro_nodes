@@ -1,5 +1,0 @@
-maestro::maestro::repo:
-  id: 'maestro-mirror'
-  username: 'u'
-  password: 'p'
-  url: 'https://repo.maestrodev.com/archiva/repository/all'
