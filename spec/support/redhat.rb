@@ -8,10 +8,9 @@ shared_context :redhat do
     :lsbmajdistrelease => '6',
     :osfamily        => 'RedHat',
     :postgres_default_version => '8.4',
-    :architecture    => 'x86_64'
+    :architecture    => 'x86_64',
+    :concat_basedir  => "/tmp/concat", # Until we can upgrade rspec-puppet and supply this via default_facts
   }}
 
-  let(:facts) { redhat_facts.merge( {
-    :concat_basedir  => "/tmp/concat", # Until we can upgrade rspec-puppet and supply this via default_facts
-  } ) }
+  let(:facts) { redhat_facts }
 end

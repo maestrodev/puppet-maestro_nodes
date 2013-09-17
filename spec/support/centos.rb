@@ -13,11 +13,10 @@ module MaestroNodes
       :operatingsystemrelease => '6.2',
       :osfamily        => 'RedHat',
       :postgres_default_version => '8.4', # CentOS 6.3
-      :architecture    => 'x86_64'
-    }}
-    let(:facts) { centos_facts.merge( {
+      :architecture    => 'x86_64',
       :concat_basedir  => "/tmp/concat", # Until we can upgrade rspec-puppet and supply this via default_facts
-    } ) }
+    }}
+    let(:facts) { centos_facts }
   end
 end
 
