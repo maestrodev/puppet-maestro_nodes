@@ -11,5 +11,7 @@ shared_context :redhat do
     :architecture    => 'x86_64'
   }}
 
-  let(:facts) { redhat_facts }
+  let(:facts) { redhat_facts.merge( {
+    :concat_basedir  => "/tmp/concat", # Until we can upgrade rspec-puppet and supply this via default_facts
+  } ) }
 end
