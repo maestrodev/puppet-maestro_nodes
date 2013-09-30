@@ -10,8 +10,10 @@ class maestro_nodes::metrics_repo{
   $backends =   [ 'mongo-statsd-backend' ]
 
   class { 'nodejs':
-    manage_repo => true,
   } ->
+  file { "/etc/yum.repos.d/nodejs-stable.repo":
+    ensure => absent,
+  }
   package { 'mongo-statsd-backend':
     ensure   => present,
     provider => npm,
