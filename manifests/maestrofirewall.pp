@@ -10,10 +10,12 @@ class maestro_nodes::maestrofirewall {
     purge => true,
   }
 
-  class { 'maestro_nodes::firewall::pre':
-    before => Package['wget'],
-  }
-  class { 'maestro_nodes::firewall::post': }
+  # rpm and wget runs sometimes between firewall commands and fails, package
+  # will catch both cases since wget has a Package['wget'] requirement
+  # TODO find a better way to express that wget::fetch and wget::authfetch depend on firewall
+  include maestro_nodes::firewall::pre
+  Class['maestro_nodes::firewall::post'] -> Package<| title != 'iptables' |>
+  include maestro_nodes::firewall::post
 
   firewall { '020 allow http/https':
     proto  => 'tcp',
