@@ -14,7 +14,7 @@ class maestro_nodes::maestrofirewall {
   # will catch both cases since wget has a Package['wget'] requirement
   # TODO find a better way to express that wget::fetch and wget::authfetch depend on firewall
   include maestro_nodes::firewall::pre
-  Class['maestro_nodes::firewall::post'] -> Package<| title != 'iptables' |>
+  Class['maestro_nodes::firewall::pre'] -> Package<| title != 'iptables' |>
   include maestro_nodes::firewall::post
 
   firewall { '020 allow http/https':
