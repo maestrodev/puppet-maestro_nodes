@@ -18,7 +18,6 @@ class maestro_nodes::metrics_repo($statsd_enabled = true) {
     package { 'mongo-statsd-backend':
       ensure   => present,
       provider => npm,
-      require  => Package['npm'],
     } ->
     class { 'statsd':
       ensure   => '0.4.0',

@@ -21,6 +21,8 @@ node 'parent' {
     require => Class['maestro_nodes::firewall::pre'],
   }
 
+  Package['npm'] -> Package <| provider == npm |>
+
   class { 'maestro_nodes::parent': }
 
 }
