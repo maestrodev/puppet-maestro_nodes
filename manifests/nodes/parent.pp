@@ -6,11 +6,6 @@ node 'parent' {
 
   # Node that can be imported on your site.pp
 
-  # Flag that enables "is_demo" on lucee config.
-  # Note that this is only temporary as we'll be pushing demos into lucee via API.  As soon as that happens
-  # the requirement for this flag will go away
-  $demo = true
-
   filebucket { main: server => 'puppet' }
 
   File { owner => 0, group => 0, mode => 0644, backup => main }
