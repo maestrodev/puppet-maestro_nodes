@@ -23,5 +23,8 @@ class maestro_nodes::firewall::pre {
     proto  => 'tcp',
     port   => [22, 2222],
     action => 'accept',
-  }
+  } ->
+
+  anchor { 'firewall-pre': }
+
 }

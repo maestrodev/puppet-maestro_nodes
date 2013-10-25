@@ -1,7 +1,5 @@
 class maestro_nodes::maestrofirewall {
 
-  include firewall
-
   # Purge unmanaged firewall resources
   #
   # This will clear any existing rules, and make sure that only rules
@@ -10,12 +8,12 @@ class maestro_nodes::maestrofirewall {
     purge => true,
   }
 
-  # rpm and wget runs sometimes between firewall commands and fails, package
-  # will catch both cases since wget has a Package['wget'] requirement
-  # TODO find a better way to express that wget::fetch and wget::authfetch depend on firewall
-  include maestro_nodes::firewall::pre
-  Class['maestro_nodes::firewall::pre'] -> Package<| title != 'iptables' |>
-  include maestro_nodes::firewall::post
+  # ensure purge happens after basic firewall rules are set
+  # https://github.com/puppetlabs/puppetlabs-firewall/issues/239#issuecomment-26443579
+
+  class{ ['maestro_nodes::firewall::pre', 'firewall', 'maestro_nodes::firewall::post']:
+    before => Resources['firewall'],
+  }
 
   firewall { '020 allow http/https':
     proto  => 'tcp',

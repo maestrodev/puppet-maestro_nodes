@@ -12,8 +12,8 @@ node 'parent' {
   Exec { path => "/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/bin" }
 
   Firewall {
-    before  => Class['maestro_nodes::firewall::post'],
-    require => Class['maestro_nodes::firewall::pre'],
+    before  => Anchor['firewall-post'],
+    require => Anchor['firewall-pre'],
   }
 
   Package['npm'] -> Package <| provider == npm |>
