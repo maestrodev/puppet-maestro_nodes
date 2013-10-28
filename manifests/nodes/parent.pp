@@ -16,6 +16,7 @@ node 'parent' {
     require => Anchor['firewall-pre'],
   }
 
+  Yumrepo <| |> -> Package <| |>
   Package['npm'] -> Package <| provider == npm |>
 
   class { 'maestro_nodes::parent': }
