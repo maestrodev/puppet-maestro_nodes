@@ -12,9 +12,8 @@ class maestro_nodes::parent() {
     mode    => '0755',
   } ->
   exec { "/bin/sh /etc/profile": } 
-  class { 'java':
-    package => 'java-1.6.0-openjdk-devel',
-  }
+
+  include java
 
   case $::kernel {
    'Linux': {
