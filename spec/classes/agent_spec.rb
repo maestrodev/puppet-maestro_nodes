@@ -11,7 +11,10 @@ describe 'maestro_nodes::agent' do
         'password' => 'p',
         'url' => 'https://repo.maestrodev.com/archiva/repository/all'
     },
-    :version => '1.0'
+    :version => '1.0',
+    :maven_properties => {
+      'sonar.jdbc.url' => 'jdbc:postgres://localhost/sonar',
+    }
   } }
 
   it { should contain_user('maestro_agent') }
@@ -20,10 +23,15 @@ describe 'maestro_nodes::agent' do
   it { should contain_package('subversion').with_ensure('installed') }
 
   it { should contain_file("#{user_home}/.m2/settings.xml").with_owner('maestro_agent') }
+  it {
+    should contain_file("#{user_home}/.m2/settings.xml").with_content(
+      %r[<properties>\s*<sonar.jdbc.url>jdbc:postgres://localhost/sonar</sonar.jdbc.url>\s*</properties>]
+    )
+  }
   it { should_not contain_file("#{user_home}/.ssh/config") }
 
-  it { 
-    should contain_file("server.key").with_path("#{user_home}/.maestro/server.key") 
+  it {
+    should contain_file("server.key").with_path("#{user_home}/.maestro/server.key")
     should contain_file("#{user_home}").with_ensure(:directory)
   }
 

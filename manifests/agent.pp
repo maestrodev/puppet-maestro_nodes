@@ -4,7 +4,8 @@
 class maestro_nodes::agent(
   $repo,
   $version   = undef,
-  $maxmemory = '128') {
+  $maxmemory = '128',
+  $maven_properties = undef) {
 
   include maestro::params
 
@@ -53,6 +54,7 @@ class maestro_nodes::agent(
     default_repo_config => $maestro_nodes::repositories::default_repo_config,
     mirrors             => $maestro_nodes::repositories::mirrors,
     servers             => $maestro_nodes::repositories::servers,
+    properties          => $maven_properties,
     require             => [Class['maestro_nodes::repositories']],
   }
 
