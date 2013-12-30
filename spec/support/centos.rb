@@ -8,6 +8,7 @@ module MaestroNodes
     extend RSpec::Core::SharedContext
 
     let(:centos_facts) {{
+      :ipaddress       => '192.168.1.1',
       :kernel          => 'Linux',
       :operatingsystem => 'CentOS',
       :operatingsystemrelease => '6.2',

@@ -3,6 +3,7 @@
 shared_context :redhat do
 
   let(:redhat_facts) {{
+    :ipaddress       => '192.168.1.1',
     :kernel          => 'Linux',
     :operatingsystem => 'RedHat',
     :lsbmajdistrelease => '6',
