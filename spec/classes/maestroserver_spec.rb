@@ -12,12 +12,12 @@ describe 'maestro_nodes::maestroserver' do
     :disabled => false
   }}
 
-  it { should include_class('maestro::maestro') }
-  it { should include_class('maestro_nodes::metrics_repo') }
-  it { should include_class('maestro_nodes::database') }
-  it { should include_class('activemq') }
-  it { should include_class('activemq::stomp') }
-  it { should include_class('maestro::plugins') }
+  it { should contain_class('maestro::maestro') }
+  it { should contain_class('maestro_nodes::metrics_repo') }
+  it { should contain_class('maestro_nodes::database') }
+  it { should contain_class('activemq') }
+  it { should contain_class('activemq::stomp') }
+  it { should contain_class('maestro::plugins') }
 
   context 'when disabling maestro' do
     let(:params) { super().merge({:disabled => true}) }
