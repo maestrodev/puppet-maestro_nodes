@@ -1,21 +1,30 @@
 # Maestro repositories
 class maestro_nodes::repositories( 
-  $host = 'localhost', 
-  $port = '8082',
+  $host = 'localhost', # deprecated, use url
+  $port = '8082', # deprecated, use url
+  $download_url = undef,
+  $deploy_url = undef,
   $user = 'admin',
   $password = 'admin1',
   $default_repo_config = {},
   $maven_mirrors = undef,
   $maven_servers = undef ) {
 
-  $deploy_repo_url = "http://${host}:${port}/archiva/repository/snapshots"
+  $download_repo_url = $download_url ? {
+    undef   => "http://${host}:${port}/archiva/repository/all",
+    default => $download_url,
+  }
+  $deploy_repo_url = $deploy_url ? {
+    undef   => "http://${host}:${port}/archiva/repository/snapshots",
+    default => $deploy_url,
+  }
   
   # download from here
   $repo = {
     id       => 'maestro-mirror',
     username => $user,
     password => $password,
-    url      => "http://${host}:${port}/archiva/repository/all",
+    url      => $download_repo_url,
     mirrorof => 'external:*',
   }
 
