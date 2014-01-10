@@ -55,6 +55,8 @@ FORGE
       ripienaar/concat (>= 0.2.0)
     puppetlabs/stdlib (4.1.0)
     ripienaar/concat (0.2.0)
+    saz/ssh (1.2.0)
+      puppetlabs/stdlib (>= 2.2.1)
     stahnma/epel (0.0.6)
 
 DEPENDENCIES
@@ -76,5 +78,6 @@ DEPENDENCIES
   puppetlabs/nodejs (>= 0.3.0)
   puppetlabs/ntp (>= 0)
   puppetlabs/stdlib (>= 3.2.0)
+  saz/ssh (>= 0)
   stahnma/epel (>= 0)
 
