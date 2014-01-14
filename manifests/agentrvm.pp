@@ -4,8 +4,22 @@ class maestro_nodes::agentrvm(
 
   include maestro_nodes::agent
 
+  # install rubies from binaries
+  Rvm_system_ruby {
+    build_opts => ['--binary'],
+  }
+
+  # ensure rvm doesn't timeout finding binary rubies
+  # the umask line is the default content when installing rvm if file does not exist
+  file { '/etc/rvmrc':
+    content => 'umask u=rwx,g=rwx,o=rx
+                export rvm_max_time_flag=20',
+    mode    => '0664',
+    before  => Class['rvm'],
+  }
+
   # rvm needs to be included after other classes that install packages that rvm also installs
-  include rvm
+  class { 'rvm': }
 
   # we can't use $maestro::params::agent_user until maestro_nodes::agent is declared
   $user = $agent_user ? {
