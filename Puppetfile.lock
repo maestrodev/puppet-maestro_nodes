@@ -1,8 +1,9 @@
 FORGE
   remote: http://forge.puppetlabs.com
   specs:
-    jfryman/nginx (0.0.6)
+    jfryman/nginx (0.0.7)
       puppetlabs/apt (>= 1.0.0)
+      puppetlabs/concat (>= 1.0.0)
       puppetlabs/stdlib (>= 0.1.6)
     maestrodev/activemq (1.2.1)
       maestrodev/wget (>= 1.0.0)
@@ -60,7 +61,7 @@ FORGE
     stahnma/epel (0.0.6)
 
 DEPENDENCIES
-  jfryman/nginx (>= 0)
+  jfryman/nginx (>= 0.0.7)
   maestrodev/activemq (>= 1.0.0)
   maestrodev/ant (>= 1.0.3)
   maestrodev/archiva (>= 1.0.0)
