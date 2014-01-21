@@ -7,13 +7,11 @@ GEM
       json_pure
     hiera-puppet-helper (1.0.1)
     highline (1.6.20)
-    json (1.8.1)
     json_pure (1.8.1)
     librarian (0.1.1)
       highline
       thor (~> 0.15)
-    librarian-puppet-maestrodev (0.9.11.2)
-      json
+    librarian-puppet-maestrodev (0.9.11.4)
       librarian (>= 0.1.1)
     metaclass (0.0.1)
     mime-types (2.0)
