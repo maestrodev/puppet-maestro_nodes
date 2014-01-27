@@ -119,4 +119,7 @@ class maestro_nodes::agent(
     home => $agent_user_home,
     require => File["${agent_user_home}/.ssh"],
   }
+
+  # puppetforge credentials
+  class { 'maestro_nodes::puppetforge': }
 }
