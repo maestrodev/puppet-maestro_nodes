@@ -26,4 +26,5 @@ class maestro_nodes::agentrvm(
     require => Class['maestro::params'],
   }
 
+  class { 'maestro_nodes::rubygems': }
 }
