@@ -1,5 +1,7 @@
 # This class includes everything needed to install and configure a maestro server
-class maestro_nodes::maestroserver($repo=undef, $disabled = false) {
+class maestro_nodes::maestroserver(
+  $repo = $maestro::params::repo,
+  $disabled = false) inherits maestro::params {
 
   # This hack is to get around hiera boolean shortcomings
   $enabled = $disabled ? { true => false, default => true}

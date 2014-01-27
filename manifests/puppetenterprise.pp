@@ -1,4 +1,6 @@
-class maestro_nodes::puppetenterprise($repo = $maestro::repository::maestrodev, $stomp_port = 61630) {
+class maestro_nodes::puppetenterprise(
+  $repo = $maestro::params::repo,
+  $stomp_port = 61630) inherits maestro::params {
 
   $srcdir = '/usr/local/src'
   $unpackdir = "${srcdir}/puppet-enterprise-2.7.1-el-6-x86_64"
