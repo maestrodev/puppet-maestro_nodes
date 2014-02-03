@@ -1,6 +1,6 @@
 # database configuration for a local postgresql server
 class maestro_nodes::database(
-  $password = $maestro::maestro::db_password,
+  $password = $maestro::params::db_password,
   $repo_url = 'https://repo.maestrodev.com/archiva/repository/all') {
   $maestro_jdbc = {
     url      => 'jdbc:postgresql://localhost/maestro',
