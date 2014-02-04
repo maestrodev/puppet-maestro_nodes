@@ -7,7 +7,7 @@ class maestro_nodes::archivaserver(
   $db_password      = $maestro_nodes::database::password,
   $mail_from        = $maestro_nodes::mail::mail_from,
   $central_repo_url = 'https://repo.maestrodev.com/archiva/repository/central'
-) inherits maestro::params {
+) inherits maestro_nodes::database {
 
   postgresql::db{ 'archiva':
     user      => 'maestro',

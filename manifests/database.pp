@@ -1,7 +1,7 @@
 # database configuration for a local postgresql server
 class maestro_nodes::database(
   $password = $maestro::params::db_password,
-  $repo_url = 'https://repo.maestrodev.com/archiva/repository/all') {
+  $repo_url = 'https://repo.maestrodev.com/archiva/repository/all') inherits maestro::params {
   $maestro_jdbc = {
     url      => 'jdbc:postgresql://localhost/maestro',
     driver   => 'org.postgresql.Driver',
