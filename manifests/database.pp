@@ -5,20 +5,20 @@ class maestro_nodes::database(
   $maestro_jdbc = {
     url      => 'jdbc:postgresql://localhost/maestro',
     driver   => 'org.postgresql.Driver',
-    username => 'maestro',
+    username => $maestro::params::db_username,
     password => $password,
   }
   $sonar_jdbc = {
     url => 'jdbc:postgresql://localhost/sonar',
     driver_class_name => 'org.postgresql.Driver',
     validation_query => 'values(1)',        
-    username => 'maestro',
+    username => $maestro::params::db_username,
     password => $password,
   }
   $continuum_jdbc = {
     databaseName => 'maestro',
     dataSource   => 'org.postgresql.ds.PGPoolingDataSource',
-    username     => 'maestro',
+    username     => $maestro::params::db_username,
     password     => $password,
   }
 
