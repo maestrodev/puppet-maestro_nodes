@@ -4,11 +4,11 @@ class maestro_nodes::repositories(
   $port = '8082', # deprecated, use url
   $download_url = undef,
   $deploy_url = undef,
-  $user = 'admin',
-  $password = 'admin1',
+  $user = $maestro::params::admin_username,
+  $password = $maestro::params::admin_password,
   $default_repo_config = {},
   $maven_mirrors = undef,
-  $maven_servers = undef ) {
+  $maven_servers = undef ) inherits maestro::params {
 
   $download_repo_url = $download_url ? {
     undef   => "http://${host}:${port}/archiva/repository/all",

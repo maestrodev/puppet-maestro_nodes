@@ -6,7 +6,7 @@ class maestro_nodes::macos_agent(
   $group = 'staff',
   $home = '/Users/maestrodev',
   $agent_name = $::hostname,
-  $maxmemory = '128') {
+  $maxmemory = '128') inherits maestro_nodes::repositories {
 
   # facts.d folders
   file { "/etc/facts.d":

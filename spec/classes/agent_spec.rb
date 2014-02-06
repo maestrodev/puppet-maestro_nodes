@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'maestro_nodes::agent' do
 
   let(:user_home) { "/var/local/maestro-agent" }
+  let(:settings_xml) { "#{user_home}/.m2/settings.xml" }
 
   let(:params) { {
     :repo => {
@@ -22,9 +23,9 @@ describe 'maestro_nodes::agent' do
   it { should contain_package('git').with_ensure('present') }
   it { should contain_package('subversion').with_ensure('installed') }
 
-  it { should contain_file("#{user_home}/.m2/settings.xml").with_owner('maestro_agent') }
+  it { should contain_file(settings_xml).with_owner('maestro_agent') }
   it {
-    should contain_file("#{user_home}/.m2/settings.xml").with_content(
+    should contain_file(settings_xml).with_content(
       %r[<properties>\s*<sonar.jdbc.url>jdbc:postgres://localhost/sonar</sonar.jdbc.url>\s*</properties>]
     )
   }
@@ -38,6 +39,19 @@ describe 'maestro_nodes::agent' do
   it { should_not contain_file("/home/agent").with_ensure(:directory) }
   it { should_not contain_file("/home/agent/.maestro") }
 
+  context "when changing admin in maestro" do
+    let(:params) {{}}
+    let(:pre_condition) { %Q[
+      class {'maestro::params':
+        admin_username => 'myuser',
+        admin_password => 'mypassword',
+      }
+    ]}
+    it { should contain_file(settings_xml).with_content(%r[<username>myuser</username>]) }
+    it { should contain_file(settings_xml).without_content(%r[<username>admin</username>]) }
+    it { should contain_file(settings_xml).with_content(%r[<password>mypassword</password>]) }
+    it { should contain_file(settings_xml).without_content(%r[<password>admin1</password>]) }
+  end
 
   # ================================================ Linux ================================================
 

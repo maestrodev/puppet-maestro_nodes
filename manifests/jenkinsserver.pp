@@ -7,7 +7,7 @@ class maestro_nodes::jenkinsserver(
   $port = '8181',
   $prefix = undef,
   $git_plugin_version = '1.4.0',
-  $git_client_plugin_version = '1.0.6' ) {
+  $git_client_plugin_version = '1.0.6' ) inherits maestro_nodes::repositories {
 
   class { 'jenkins' :
     jenkins_user   => $user,

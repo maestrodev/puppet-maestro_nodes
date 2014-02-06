@@ -8,7 +8,7 @@ class maestro_nodes::agent(
   $agent_user_home = $maestro::params::agent_user_home,
   $version   = undef,
   $maxmemory = '128',
-  $maven_properties = undef) inherits maestro::params {
+  $maven_properties = undef) inherits maestro_nodes::repositories {
 
   case $::osfamily {
     'RedHat': {
@@ -17,8 +17,6 @@ class maestro_nodes::agent(
     default: {
     }
   }
-
-  include maestro_nodes::repositories
 
   class { 'maestro::agent':
     repo          => $repo,
