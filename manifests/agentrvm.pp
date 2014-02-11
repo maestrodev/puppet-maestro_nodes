@@ -15,8 +15,12 @@ class maestro_nodes::agentrvm(
   }
   class { 'rvm': }
 
-  rvm::system_user { $agent_user:
-    require => Class['maestro::params'],
+  rvm::system_user { $agent_user: }
+
+  if defined(Package['jenkins']) {
+    rvm::system_user { 'jenkins':
+      require => Package['jenkins'],
+    }
   }
 
   class { 'maestro_nodes::rubygems': }
