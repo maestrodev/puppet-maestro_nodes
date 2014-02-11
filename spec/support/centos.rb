@@ -7,16 +7,20 @@ module MaestroNodes
   module CentOS
     extend RSpec::Core::SharedContext
 
-    let(:centos_facts) {{
-      :ipaddress       => '192.168.1.1',
-      :kernel          => 'Linux',
-      :operatingsystem => 'CentOS',
-      :operatingsystemrelease => '6.2',
-      :osfamily        => 'RedHat',
-      :postgres_default_version => '8.4', # CentOS 6.3
-      :architecture    => 'x86_64',
-      :concat_basedir  => "/tmp/concat", # Until we can upgrade rspec-puppet and supply this via default_facts
-    }}
+    def self.centos_facts
+      {
+        :ipaddress       => '192.168.1.1',
+        :kernel          => 'Linux',
+        :operatingsystem => 'CentOS',
+        :operatingsystemrelease => '6.2',
+        :osfamily        => 'RedHat',
+        :postgres_default_version => '8.4', # CentOS 6.3
+        :architecture    => 'x86_64',
+        :concat_basedir  => "/tmp/concat", # Until we can upgrade rspec-puppet and supply this via default_facts
+      }
+    end
+
+    let(:centos_facts) {centos_facts}
     let(:facts) { centos_facts }
   end
 end

@@ -3,10 +3,12 @@ require 'spec_helper'
 describe 'maestro_nodes::jenkinsserver' do
   let(:settings_xml) { "/var/lib/jenkins/.m2/settings.xml" }
 
-  it { should contain_package("jenkins").with_ensure("present") }
-  it { should contain_wget__fetch("git.hpi").with_source(/1\.4\.0/) }
+  context "when using default params", :compile do
+    it { should contain_package("jenkins").with_ensure("present") }
+    it { should contain_wget__fetch("git.hpi").with_source(/1\.4\.0/) }
+  end
 
-  context "when changing admin in maestro" do
+  context "when changing admin in maestro", :compile do
     let(:pre_condition) { %Q[
       class {'maestro::params':
         admin_username => 'myuser',

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'maestro_nodes::parent' do
+describe 'maestro_nodes::parent', :compile do
 
   it { should contain_class('java') }
   it { should contain_package('java').with(

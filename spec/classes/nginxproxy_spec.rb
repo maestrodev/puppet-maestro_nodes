@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe 'maestro_nodes::nginxproxy' do
 
-  let(:facts) { centos_facts.merge({:fqdn => "maestro.acme.com"}) }
+  let(:facts) {{:fqdn => "maestro.acme.com"}}
 
   let(:params) {{ :maestro_port => '8080' }}
 
-  context "with default parameters" do
+  context "with default parameters", :compile do
     it { should contain_nginx__resource__vhost("maestro.acme.com").with(
                     :ssl => false,
                     :listen_port => '80',
@@ -20,7 +20,7 @@ describe 'maestro_nodes::nginxproxy' do
     it { should contain_service('nginx') }
   end
 
-  context "with SSL" do
+  context "with SSL", :compile do
     let(:params) { super().merge( {
         :ssl => true,
         :ssl_cert => '/etc/ssl/certs/maestro.acme.com.crt',

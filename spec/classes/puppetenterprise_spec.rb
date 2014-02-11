@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'maestro_nodes::puppetenterprise' do
+describe 'maestro_nodes::puppetenterprise', :compile do
 
   let(:params) { {
       :repo => {

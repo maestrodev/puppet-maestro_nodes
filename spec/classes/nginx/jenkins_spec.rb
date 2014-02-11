@@ -8,7 +8,9 @@ describe 'maestro_nodes::nginx::jenkins' do
       :ssl => false,
   } }
 
-  context "with default parameters" do
+  let(:pre_condition) { "class { 'maestro_nodes::nginxproxy': }" }
+
+  context "with default parameters", :compile do
     it { should contain_nginx__resource__location("jenkins_app").with(
                     :ssl => false,
                     :ssl_only => false,
@@ -20,7 +22,7 @@ describe 'maestro_nodes::nginx::jenkins' do
     it { should contain_nginx__resource__upstream("jenkins_app").with_members(["localhost:8181"]) }
   end
 
-  context "with SSL" do
+  context "with SSL", :compile do
     let(:params) { super().merge ({
         :ssl => true,
     }) }

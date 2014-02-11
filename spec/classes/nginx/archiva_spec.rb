@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe 'maestro_nodes::nginx::archiva' do
 
-  default_params = {
+  let(:params) {{
       :archiva_port => '8082',
       :hostname => 'maestro.acme.com',
       :ssl => false,
-  }
+  }}
 
-  let(:params) { default_params }
+  let(:pre_condition) { "class { 'maestro_nodes::nginxproxy': }" }
 
-  context "with default parameters" do
+  context "with default parameters", :compile do
     it { should contain_nginx__resource__location("archiva_app").with(
                     :ssl => false,
                     :ssl_only => false,
@@ -22,8 +22,8 @@ describe 'maestro_nodes::nginx::archiva' do
     it { should contain_nginx__resource__upstream("archiva_app").with_members(["localhost:8082"]) }
   end
 
-  context "with SSL" do
-    let(:params) { default_params.merge ({
+  context "with SSL", :compile do
+    let(:params) { super().merge ({
         :ssl => true,
     }) }
     it { should contain_nginx__resource__location("archiva_app").with(
