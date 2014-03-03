@@ -7,7 +7,7 @@ describe 'maestro_nodes::archivaserver', :compile do
     "class { 'maestro::maestro::db': }"
   ]}
 
-  it { should contain_postgresql__db("archiva").with({
+  it { should contain_postgresql__server__db("archiva").with({
     :user => 'maestro',
     :password => 'mypassword'
   }) }

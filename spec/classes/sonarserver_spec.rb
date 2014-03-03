@@ -8,5 +8,5 @@ describe 'maestro_nodes::sonarserver', :compile do
 
   let(:pre_condition) { "class { 'maestro::maestro::db': }" }
 
-  it { should contain_postgresql__db("sonar") }
+  it { should contain_postgresql__server__db("sonar") }
 end

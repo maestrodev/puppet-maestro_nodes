@@ -9,7 +9,7 @@ class maestro_nodes::archivaserver(
   $central_repo_url = 'https://repo.maestrodev.com/archiva/repository/central'
 ) inherits maestro_nodes::database {
 
-  postgresql::db{ 'archiva':
+  postgresql::server::db{ 'archiva':
     user      => 'maestro',
     password  => $db_password,
     require   => [Class['postgresql::server'], Class['maestro_nodes::database']],
