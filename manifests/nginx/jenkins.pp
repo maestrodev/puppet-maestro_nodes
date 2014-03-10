@@ -1,5 +1,5 @@
 class maestro_nodes::nginx::jenkins(
-  $jenkins_port = $maestro_nodes::jenkinsserver::port,
+  $jenkins_port = 8181,
   $hostname = $maestro_nodes::nginx::params::hostname,
   $ssl = $maestro_nodes::nginx::params::ssl,
 ) inherits maestro_nodes::nginx::params {

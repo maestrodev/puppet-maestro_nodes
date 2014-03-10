@@ -9,3 +9,5 @@ maestro::maestro::repo:
   username: u
   password: p
   url: https://repo.maestrodev.com/archiva/repository/all
+
+jenkins::configure_firewall: false

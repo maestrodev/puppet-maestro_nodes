@@ -1,55 +1,58 @@
 # A jenkins server configured with git plugin and configured to use the
 # Archiva repository for Maven builds
 class maestro_nodes::jenkinsserver(
-  $user = 'jenkins',
-  $group = 'jenkins',
+  $user = undef,
+  $group = undef,
   $version = undef,
-  $port = '8181',
+  $port = undef,
   $prefix = undef,
-  $git_plugin_version = '1.4.0',
-  $git_client_plugin_version = '1.0.6' ) inherits maestro_nodes::repositories {
+  $git_plugin_version = undef,
+  $git_client_plugin_version = undef ) inherits maestro_nodes::repositories {
+
+  if $version != undef {
+    warning("maestro_nodes::jenkinsserver::version is deprecated, use hiera on jenkins class")
+  }
+  if $port != undef {
+    warning("maestro_nodes::jenkinsserver::port is deprecated, use hiera on jenkins class")
+  }
+
+  if $user != undef {
+    warning("maestro_nodes::jenkinsserver::user is ignored")
+  }
+  if $group != undef {
+    warning("maestro_nodes::jenkinsserver::group is ignored")
+  }
+  if $prefix != undef {
+    warning("maestro_nodes::jenkinsserver::prefix is ignored")
+  }
+  if $git_plugin_version != undef {
+    warning("maestro_nodes::jenkinsserver::git_plugin_version is ignored, use jenkins::plugin_hash")
+  }
+  if $git_client_plugin_version != undef {
+    warning("maestro_nodes::jenkinsserver::git_client_plugin_version is ignored, use jenkins::plugin_hash")
+  }
+
+  if $port != undef {
+    $config_hash = { 'HTTP_PORT' => { 'value' => $port } }
+  } else {
+    $config_hash = undef
+  }
 
   class { 'jenkins' :
-    jenkins_user   => $user,
-    jenkins_group  => $group,
-    jenkins_port   => $port,
-    jenkins_prefix => $prefix,
-    version        => $version,
+    config_hash => $config_hash,
+    version     => $version,
   }
   if defined(Package['java']) {
     Package['java'] -> Service['jenkins']
   }
 
   maven::settings { 'jenkins' :
-    home                => "/var/lib/jenkins",
-    user                => $user,
+    home                => '/var/lib/jenkins',
+    user                => 'jenkins',
     default_repo_config => $maestro_nodes::repositories::default_repo_config,
     mirrors             => $maestro_nodes::repositories::mirrors,
     servers             => $maestro_nodes::repositories::servers,
-    require             => [Class['maestro_nodes::repositories'], Package['jenkins']], # to know what the user/password is used in the repos
-  } ->
-
-  file { '/var/lib/jenkins/plugins':
-      ensure => directory,
-      owner => $user,
-      group => $group,
-      mode  => '0700',
-      require => Package['jenkins']
-  } ->
-  wget::fetch {'git.hpi':
-    source      => "http://updates.jenkins-ci.org/download/plugins/git/${git_plugin_version}/git.hpi",
-    destination => '/var/lib/jenkins/plugins/git.hpi',
-    notify      => Service['jenkins']
-  }
-
-  # Required as of 1.2.0 of git plugin
-  if $git_client_plugin_version != undef {
-    wget::fetch {'git-client.hpi':
-      source      => "http://updates.jenkins-ci.org/download/plugins/git-client/${git_client_plugin_version}/git-client.hpi",
-      destination => '/var/lib/jenkins/plugins/git-client.hpi',
-      notify      => Service['jenkins'],
-      require     => File['/var/lib/jenkins/plugins'],
-    }
+    require             => Package['jenkins'],
   }
 
 }
