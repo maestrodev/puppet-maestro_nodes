@@ -15,7 +15,7 @@ describe 'maestro_nodes::nginx::sonar' do
                     :ssl => false,
                     :ssl_only => false,
                     :vhost => 'maestro.acme.com',
-                    :location => '/sonar',
+                    :location => '/sonar/',
                     :proxy => 'http://sonar_app',
                 ) }
 
@@ -30,7 +30,7 @@ describe 'maestro_nodes::nginx::sonar' do
                     :ssl => true,
                     :ssl_only => true,
                     :vhost => 'maestro.acme.com',
-                    :location => '/sonar',
+                    :location => '/sonar/',
                     :proxy => 'http://sonar_app',
                 ) }
 

@@ -15,7 +15,7 @@ describe 'maestro_nodes::nginx::archiva' do
                     :ssl => false,
                     :ssl_only => false,
                     :vhost => 'maestro.acme.com',
-                    :location => '/archiva',
+                    :location => '/archiva/',
                     :proxy => 'http://archiva_app',
                 ) }
 
@@ -30,7 +30,7 @@ describe 'maestro_nodes::nginx::archiva' do
                     :ssl => true,
                     :ssl_only => true,
                     :vhost => 'maestro.acme.com',
-                    :location => '/archiva',
+                    :location => '/archiva/',
                     :proxy => 'http://archiva_app',
                 ) }
 

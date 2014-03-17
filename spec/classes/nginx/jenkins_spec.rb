@@ -15,7 +15,7 @@ describe 'maestro_nodes::nginx::jenkins' do
                     :ssl => false,
                     :ssl_only => false,
                     :vhost => 'maestro.acme.com',
-                    :location => '/jenkins',
+                    :location => '/jenkins/',
                     :proxy => 'http://jenkins_app',
                 ) }
 
@@ -30,7 +30,7 @@ describe 'maestro_nodes::nginx::jenkins' do
                     :ssl => true,
                     :ssl_only => true,
                     :vhost => 'maestro.acme.com',
-                    :location => '/jenkins',
+                    :location => '/jenkins/',
                     :proxy => 'http://jenkins_app',
                 ) }
 
