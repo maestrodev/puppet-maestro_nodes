@@ -6,7 +6,7 @@ class maestro_nodes::nginx::jenkins(
 
   nginx::resource::location { 'jenkins_app':
     ensure => present,
-    location => '/jenkins',
+    location => '/jenkins/',
     proxy => 'http://jenkins_app',
     vhost => $hostname,
     ssl => $ssl,

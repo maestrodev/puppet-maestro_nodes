@@ -6,7 +6,7 @@ class maestro_nodes::nginx::sonar(
 
   nginx::resource::location { 'sonar_app':
     ensure => present,
-    location => '/sonar',
+    location => '/sonar/',
     proxy => 'http://sonar_app',
     vhost => $hostname,
     ssl => $ssl,

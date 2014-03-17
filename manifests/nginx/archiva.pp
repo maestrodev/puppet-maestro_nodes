@@ -6,7 +6,7 @@ class maestro_nodes::nginx::archiva(
 
   nginx::resource::location { 'archiva_app':
     ensure => present,
-    location => '/archiva',
+    location => '/archiva/',
     proxy => 'http://archiva_app',
     vhost => $hostname,
     ssl => $ssl,
