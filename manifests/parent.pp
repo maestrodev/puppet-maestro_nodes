@@ -1,18 +1,11 @@
 # A typical parent node that can be reused
 class maestro_nodes::parent() {
 
-  group { "puppet":
-    ensure => "present",
+  group { 'puppet':
+    ensure => 'present',
   }
 
   # Java
-  file { "/etc/profile.d/set_java_home.sh":
-    ensure  => present,
-    content => 'export JAVA_HOME=/usr/lib/jvm/jre-openjdk',
-    mode    => '0755',
-  } ->
-  exec { "/bin/sh /etc/profile": } 
-
   include java
 
   case $::kernel {
