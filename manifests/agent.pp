@@ -1,5 +1,5 @@
 # A Maestro agent node with:
-# git, subversion, maven, ant, ivy, rake and rubygems
+# git, subversion, maven, ant, ivy
 
 class maestro_nodes::agent(
   $repo = $maestro::params::repo,
@@ -79,12 +79,6 @@ class maestro_nodes::agent(
     group   => $agent_group,
     mode    => 755,
     content => template("maestro_nodes/ant.xml.erb")
-  }
-
-  # Rake
-  package { 'rake':
-    provider => gem,
-    ensure => installed,
   }
 
   # server_key for autoconnect and autoactivate
