@@ -1,7 +1,7 @@
 class maestro_nodes::metrics_repo($statsd_enabled = true) {
 
   class { 'mongodb':
-    enable_10gen => true,
+    enable_10gen => false,
   }
 
   if $statsd_enabled {

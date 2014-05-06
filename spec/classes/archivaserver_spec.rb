@@ -11,4 +11,5 @@ describe 'maestro_nodes::archivaserver', :compile do
     :user => 'maestro',
     :password => 'mypassword'
   }) }
+  it { should contain_class("archiva").with_port(8082) }
 end

@@ -16,8 +16,8 @@ class maestro_nodes::maestroserver(
   }
 
   include maestro_nodes::database
-  include activemq
-  include activemq::stomp
+  class { 'activemq': }
+  class { 'activemq::stomp': }
   include maestro::plugins
 
   if defined(Package['java']) {
