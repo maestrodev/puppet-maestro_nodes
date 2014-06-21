@@ -21,6 +21,7 @@ class maestro_nodes::agent::git(
   case $::kernel {
     'Linux': {
       class { 'ssh::client': }
+      Class['ssh::client::install'] -> Sshkey['github.com']
     }
     default: {
     }

@@ -56,7 +56,7 @@ PLATFORMS
 
 DEPENDENCIES
   librarian-puppet (>= 0.9.12)
-  puppet (>= 3.0.1)
+  puppet (>= 3.4.0)
   puppet-blacksmith (>= 1.0.1)
   puppet-lint (>= 0.1.12)
   puppetlabs_spec_helper
