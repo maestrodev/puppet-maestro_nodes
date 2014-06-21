@@ -12,10 +12,7 @@ describe 'maestro_nodes::agent' do
         'password' => 'p',
         'url' => 'https://repo.maestrodev.com/archiva/repository/all'
     },
-    :version => '1.0',
-    :maven_properties => {
-      'sonar.jdbc.url' => 'jdbc:postgres://localhost/sonar',
-    }
+    :version => '1.0'
   } }
 
   context "with default params", :compile do

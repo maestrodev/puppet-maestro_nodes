@@ -8,10 +8,8 @@ describe 'maestro_nodes::agentrvm' do
     it { should_not contain_rvm__system_user('jenkins') }
   end
 
-  context "when setting params", :compile do
-    let(:params) { {
-      :agent_user => 'username'
-    } }
+  context "when changing the agent_user", :compile do
+    let(:pre_condition) { "class { 'maestro::params': agent_user => 'username' }" }
 
     it { should_not contain_rvm__system_user('undef') }
     it { should contain_rvm__system_user('username') }
