@@ -1,5 +1,5 @@
-sonar.host.url=http://<%= @fqdn.gsub(/\.agent\w*/,'') %>:8083
-sonar.jdbc.url=jdbc:postgresql://<%= @fqdn.gsub(/\.agent\w*/,'') %>:5432/sonar
+sonar.host.url=http://<%= @fqdn and @fqdn.gsub(/\.agent\w*/,'') || @hostname %>:8083
+sonar.jdbc.url=jdbc:postgresql://<%= @fqdn and @fqdn.gsub(/\.agent\w*/,'') || @hostname %>:5432/sonar
 sonar.jdbc.driverClassName=org.postgresql.Driver
 sonar.jdbc.username=maestro
 sonar.jdbc.password=maestro
