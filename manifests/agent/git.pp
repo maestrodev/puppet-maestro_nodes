@@ -9,7 +9,7 @@ class maestro_nodes::agent::git(
     group    => $agent_group,
     root     => $agent_user_home,
     email    => 'info@maestrodev.com',
-    realname => 'MaestroDev Demonstration',
+    realname => 'MaestroDev',
   }
   # github.com ssh key
   sshkey { 'github.com':
