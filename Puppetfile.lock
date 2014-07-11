@@ -1,5 +1,5 @@
 FORGE
-  remote: http://forge.puppetlabs.com
+  remote: https://forgeapi.puppetlabs.com
   specs:
     darin/zypprepo (1.0.1)
     jfryman/nginx (0.0.9)
@@ -68,7 +68,7 @@ FORGE
 DEPENDENCIES
   jfryman/nginx (>= 0.0.7)
   maestrodev/activemq (>= 2.0.0)
-  maestrodev/ant (>= 1.0.3)
+  maestrodev/ant (>= 1.0.5)
   maestrodev/archiva (>= 1.0.0)
   maestrodev/git (>= 1.0.0)
   maestrodev/maestro (>= 2.0.0)
