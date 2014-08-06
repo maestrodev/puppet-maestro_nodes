@@ -9,13 +9,15 @@ class maestro_nodes::parent() {
   include java
 
   case $::kernel {
-   'Linux': {
-     file { '/etc/motd':
-         content => "Maestro 4\n"
-     }     
-     
-     # NTP client
-     class { 'ntp': }
+    'Linux': {
+      file { '/etc/motd':
+        content => "Maestro 4\n"
+      }
+
+      if $::virtual != 'docker' {
+        # NTP client
+        class { 'ntp': }
+      }
     }
     default: {
 
