@@ -6,9 +6,7 @@ class maestro_nodes::agent::maven(
 
 
   # Maven
-  class { '::maven::maven':
-    version => '3.0.4',
-  } ->
+  class { '::maven::maven': } ->
   maven::settings { $agent_user :
     home                => $agent_user_home,
     user                => $agent_user,
