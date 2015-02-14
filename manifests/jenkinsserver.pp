@@ -10,26 +10,26 @@ class maestro_nodes::jenkinsserver(
   $git_client_plugin_version = undef ) inherits maestro_nodes::repositories {
 
   if $version != undef {
-    warning("maestro_nodes::jenkinsserver::version is deprecated, use hiera on jenkins class")
+    warning('maestro_nodes::jenkinsserver::version is deprecated, use hiera on jenkins class')
   }
   if $port != undef {
-    warning("maestro_nodes::jenkinsserver::port is deprecated, use hiera on jenkins class")
+    warning('maestro_nodes::jenkinsserver::port is deprecated, use hiera on jenkins class')
   }
 
   if $user != undef {
-    warning("maestro_nodes::jenkinsserver::user is ignored")
+    warning('maestro_nodes::jenkinsserver::user is ignored')
   }
   if $group != undef {
-    warning("maestro_nodes::jenkinsserver::group is ignored")
+    warning('maestro_nodes::jenkinsserver::group is ignored')
   }
   if $prefix != undef {
-    warning("maestro_nodes::jenkinsserver::prefix is ignored")
+    warning('maestro_nodes::jenkinsserver::prefix is ignored')
   }
   if $git_plugin_version != undef {
-    warning("maestro_nodes::jenkinsserver::git_plugin_version is ignored, use jenkins::plugin_hash")
+    warning('maestro_nodes::jenkinsserver::git_plugin_version is ignored, use jenkins::plugin_hash')
   }
   if $git_client_plugin_version != undef {
-    warning("maestro_nodes::jenkinsserver::git_client_plugin_version is ignored, use jenkins::plugin_hash")
+    warning('maestro_nodes::jenkinsserver::git_client_plugin_version is ignored, use jenkins::plugin_hash')
   }
 
   if $port != undef {

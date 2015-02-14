@@ -1,7 +1,4 @@
-import '/etc/puppet/modules/maestro_nodes/manifests/nodes/*.pp'
-
-
-node 'maestro.acme.com' inherits 'parent' {
+node 'maestro.acme.com' {
   yumrepo { 'maestrodev':
     descr    => 'MaestroDev Products EL 6 - $basearch',
     baseurl  => "https://${maestrodev_username}:${maestrodev_password}@yum.maestrodev.com/el/6/\$basearch",
@@ -13,7 +10,7 @@ node 'maestro.acme.com' inherits 'parent' {
 }
 
 # test that wget requests happen after firewall has been setup
-node 'firewall.acme.com' inherits 'parent' {
+node 'firewall.acme.com' {
   class { 'maestro_nodes::maestrofirewall': }
   class { 'maestro_nodes::firewall::puppetmaster': }
 
@@ -23,6 +20,6 @@ node 'firewall.acme.com' inherits 'parent' {
   class { 'ant::tasks::sonar': }
 }
 
-node 'metrics.acme.com' inherits 'parent' {
+node 'metrics.acme.com' {
   include 'maestro_nodes::metrics_repo'
 }

@@ -12,8 +12,8 @@ class maestro_nodes::agent::ant(
     path    => "${agent_user_home}/ant.xml",
     owner   => $agent_user,
     group   => $agent_group,
-    mode    => 755,
-    content => template("maestro_nodes/ant.xml.erb")
+    mode    => '0755',
+    content => template('maestro_nodes/ant.xml.erb')
   }
 
 }

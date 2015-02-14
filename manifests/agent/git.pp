@@ -4,7 +4,7 @@ class maestro_nodes::agent::git(
   $agent_user_home = $maestro::params::agent_user_home) inherits maestro::params {
 
   class { '::git': } ->
-  ::git::resource::config { "agent-gitconfig":
+  ::git::resource::config { 'agent-gitconfig':
     user     => $agent_user,
     group    => $agent_group,
     root     => $agent_user_home,

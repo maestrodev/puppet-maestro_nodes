@@ -11,7 +11,7 @@ class maestro_nodes::database(
   $sonar_jdbc = {
     url => 'jdbc:postgresql://localhost/sonar',
     driver_class_name => 'org.postgresql.Driver',
-    validation_query => 'values(1)',        
+    validation_query => 'values(1)',
     username => $maestro::params::db_username,
     password => $password,
   }

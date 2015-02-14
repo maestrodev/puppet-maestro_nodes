@@ -4,11 +4,11 @@ class maestro_nodes::sonarserver(
   $db_password = $maestro_nodes::database::password) inherits maestro_nodes::database {
 
   postgresql::server::db{ 'sonar':
-    user      => 'maestro',
-    password  => $db_password,
-    require   => [Class['postgresql::server']],
+    user     => 'maestro',
+    password => $db_password,
+    require  => [Class['postgresql::server']],
   } ->
-  class { sonar:
+  class { 'sonar':
     port => $port,
     jdbc => $maestro_nodes::database::sonar_jdbc,
   }

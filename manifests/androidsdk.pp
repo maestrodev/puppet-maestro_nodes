@@ -2,8 +2,8 @@ class maestro_nodes::androidsdk($user, $group, $home, $proxy_host = undef, $prox
   
   #Android SDK
   class { 'android':
-    user => $user,
-    group => $group,
+    user       => $user,
+    group      => $group,
     proxy_host => $proxy_host,
     proxy_port => $proxy_port,
   }

@@ -12,32 +12,32 @@ class maestro_nodes::nginxproxy(
     $port = '443'
 
     file { '/etc/nginx/conf.d/default.conf':
-      ensure => present,
-      source => "puppet:///modules/maestro_nodes/nginx/default.conf",
-      notify => Service[nginx],
+      ensure  => present,
+      source  => 'puppet:///modules/maestro_nodes/nginx/default.conf',
+      notify  => Service[nginx],
       require => Package[nginx],
     }
   } else {
     $port = '80'
 
     file { '/etc/nginx/conf.d/default.conf':
-      ensure => absent,
-      notify => Service[nginx],
+      ensure  => absent,
+      notify  => Service[nginx],
       require => Package[nginx],
     }
   }
 
   nginx::resource::vhost { $hostname:
-    ensure => present,
-    ssl => $ssl,
+    ensure      => present,
+    ssl         => $ssl,
     listen_port => $port,
-    ssl_cert => $ssl_cert,
-    ssl_key => $ssl_key,
-    proxy => 'http://maestro_app',
+    ssl_cert    => $ssl_cert,
+    ssl_key     => $ssl_key,
+    proxy       => 'http://maestro_app',
   }
 
   nginx::resource::upstream { 'maestro_app':
-    ensure => present,
-    members => ["localhost:$maestro_port"],
+    ensure  => present,
+    members => ["localhost:${maestro_port}"],
   }
 }

@@ -35,18 +35,18 @@ class maestro_nodes::agent(
 
   # server_key for autoconnect and autoactivate
   file { '.maestro':
-    ensure  => directory,
-    path    => "${agent_user_home}/.maestro", 
-    owner   => $agent_user,
-    group   => $agent_group,
-    mode    => 700,
+    ensure => directory,
+    path   => "${agent_user_home}/.maestro",
+    owner  => $agent_user,
+    group  => $agent_group,
+    mode   => '0700',
   } ->
   file { 'server.key':
     content => 'server_key',
     path    => "${agent_user_home}/.maestro/server.key",
     owner   => $agent_user,
     group   => $agent_group,
-    mode    => 600,
+    mode    => '0600',
   }
 
 }

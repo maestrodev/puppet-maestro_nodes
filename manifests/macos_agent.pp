@@ -6,18 +6,19 @@ class maestro_nodes::macos_agent(
   $group = 'staff',
   $home = '/Users/maestrodev',
   $agent_name = $::hostname,
+  $agent_user = $maestro::params::agent_user,
   $maxmemory = '128') inherits maestro_nodes::repositories {
 
   # facts.d folders
-  file { "/etc/facts.d":
+  file { '/etc/facts.d':
     ensure  => absent,
     recurse => true,
     force   => true,
   }
-  file { "/etc/facter":
+  file { '/etc/facter':
     ensure => directory,
   }
-  file { "/etc/facter/facts.d":
+  file { '/etc/facter/facts.d':
     ensure => directory,
   }
 
@@ -32,12 +33,12 @@ class maestro_nodes::macos_agent(
   }
 
   class { 'maestro::agent':
-    package_type   => 'tarball',
-    repo           => $repo,
-    agent_version  => $version,
-    stomp_host     => $stomp_host,
-    agent_name     => $agent_name,
-    maxmemory      => $maxmemory,
+    package_type  => 'tarball',
+    repo          => $repo,
+    agent_version => $version,
+    stomp_host    => $stomp_host,
+    agent_name    => $agent_name,
+    maxmemory     => $maxmemory,
   }
 
   ## Maven
@@ -54,21 +55,21 @@ class maestro_nodes::macos_agent(
   class { 'ant::ivy': }
   class { 'ant::tasks::maven': }
   class { 'ant::tasks::sonar': }
-  file { "ant.xml":
+  file { 'ant.xml':
     path    => "${home}/ant.xml",
     owner   => $user,
     group   => $group,
     mode    => '0755',
-    content => template("maestro_nodes/ant.xml.erb")
+    content => template('maestro_nodes/ant.xml.erb')
   }
   
   # server_key for autoconnect and autoactivate
   file { '.maestro':
-    ensure  => directory,
-    path    => "${home}/.maestro", 
-    owner   => $user,
-    group   => $group,
-    mode    => '0700',
+    ensure => directory,
+    path   => "${home}/.maestro",
+    owner  => $user,
+    group  => $group,
+    mode   => '0700',
   } ->
   file { 'server.key':
     content => 'server_key',
@@ -77,5 +78,5 @@ class maestro_nodes::macos_agent(
     group   => $group,
     mode    => '0600',
   }
- 
+
 }

@@ -12,7 +12,7 @@ class maestro_nodes::metrics_repo($statsd_enabled = true) {
 
     class { 'nodejs':
     } ->
-    file { "/etc/yum.repos.d/nodejs-stable.repo":
+    file { '/etc/yum.repos.d/nodejs-stable.repo':
       ensure => absent,
     }
     package { 'mongo-statsd-backend':

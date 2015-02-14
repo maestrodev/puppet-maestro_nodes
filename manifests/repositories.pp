@@ -1,5 +1,5 @@
 # Maestro repositories
-class maestro_nodes::repositories( 
+class maestro_nodes::repositories(
   $host = 'localhost', # deprecated, use url
   $port = '8082', # deprecated, use url
   $download_url = undef,
