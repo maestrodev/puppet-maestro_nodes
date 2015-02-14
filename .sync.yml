@@ -1,3 +1,5 @@
+Gemfile:
+  puppet_version: '>= 3.4.0'
 Rakefile:
   strict_variables: false
   lint_disable_checks:
@@ -7,3 +9,7 @@ spec/spec_helper.rb:
   default_facts:
     concat_basedir: /tmp/concat
     fqdn: maestro.acme.com
+.travis.yml:
+  exclude_puppet:
+    - 3.3.0
+    - 3.2.0
