@@ -1,20 +1,27 @@
-Dir["./spec/support/**/*.rb"].each {|f| require f}
+# This file is managed centrally by modulesync
+#   https://github.com/maestrodev/puppet-modulesync
+
 require 'puppetlabs_spec_helper/module_spec_helper'
 
 RSpec.configure do |c|
-  c.mock_framework = :rspec
-  c.default_facts = MaestroNodes::CentOS.centos_facts.merge({:fqdn => 'maestro.acme.com'})
-  c.hiera_config = File.expand_path(File.join(__FILE__, '../fixtures/hiera.yaml'))
   c.treat_symbols_as_metadata_keys_with_true_values = true
+  c.mock_with :rspec
+  c.hiera_config = File.expand_path(File.join(__FILE__, '../fixtures/hiera.yaml'))
 
   c.before(:each) do
     Puppet::Util::Log.level = :warning
     Puppet::Util::Log.newdestination(:console)
+  end
 
-    # work around https://tickets.puppetlabs.com/browse/PUP-1547
-    # ensure that there's at least one provider available by emulating that any command exists
-    require 'puppet/confine/exists'
-    Puppet::Confine::Exists.any_instance.stubs(:which => '')
+  c.default_facts = {
+    :operatingsystem => 'CentOS',
+    :operatingsystemrelease => '6.6',
+    :kernel => 'Linux',
+    :osfamily => 'RedHat',
+    :architecture => 'x86_64'
+  }.merge({"concat_basedir"=>"/tmp/concat", "fqdn"=>"maestro.acme.com"})
+
+  c.before do
     # avoid "Only root can execute commands as other users"
     Puppet.features.stubs(:root? => true)
   end
@@ -23,3 +30,4 @@ end
 shared_examples :compile, :compile => true do
   it { should compile.with_all_deps }
 end
+

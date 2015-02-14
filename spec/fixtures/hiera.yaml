@@ -1,4 +1,6 @@
 ---
+# This file is managed centrally by modulesync
+#   https://github.com/maestrodev/puppet-modulesync
 :backends:
   - rspec
   - yaml
