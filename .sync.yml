@@ -1,0 +1,5 @@
+Rakefile:
+  strict_variables: false
+  lint_disable_checks:
+    - documentation
+    - inherits_across_namespaces
