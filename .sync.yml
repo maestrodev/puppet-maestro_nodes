@@ -3,3 +3,7 @@ Rakefile:
   lint_disable_checks:
     - documentation
     - inherits_across_namespaces
+spec/spec_helper.rb:
+  default_facts:
+    concat_basedir: /tmp/concat
+    fqdn: maestro.acme.com
