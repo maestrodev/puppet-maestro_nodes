@@ -20,7 +20,7 @@ RSpec.configure do |c|
     :osfamily => 'RedHat',
     :architecture => 'x86_64',
     :clientcert => 'puppet.acme.com'
-  }.merge({"concat_basedir"=>"/tmp/concat"})
+  }.merge({"concat_basedir"=>"/tmp/concat", "fqdn"=>"maestro.acme.com"})
 
   c.before do
     # avoid "Only root can execute commands as other users"
