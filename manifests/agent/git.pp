@@ -1,15 +1,17 @@
 class maestro_nodes::agent::git(
   $agent_user = $maestro::params::agent_user,
   $agent_group = $maestro::params::agent_group,
-  $agent_user_home = $maestro::params::agent_user_home) inherits maestro::params {
+  $agent_user_home = $maestro::params::agent_user_home,
+  $git_email = 'info@maestrodev.com',
+  $git_realname = 'MaestroDev') inherits maestro::params {
 
   class { '::git': } ->
   ::git::resource::config { 'agent-gitconfig':
     user     => $agent_user,
     group    => $agent_group,
     root     => $agent_user_home,
-    email    => 'info@maestrodev.com',
-    realname => 'MaestroDev',
+    email    => $git_email,
+    realname => $git_realname,
   }
   # github.com ssh key
   sshkey { 'github.com':
